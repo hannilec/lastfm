@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ 
+  <!--
+            PLAYLIST
+                        -->
+  <class name="hiberex.Playlist" table="Playlist">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="title" name="title"/>
+    <property column="date" name="date"/>
+    
+    <many-to-one name="creator" class="hiberex.User" column="creator_id" cascade="none" not-null="true"/>
+
+     <list name="tracklist" table="Playlist_Track" cascade="none">
+            <key column="playlist_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="track_id" class="hiberex.Track"/>
+    </list>
+  </class>
+  <!--
+            USER
+                        -->
+  <class name="hiberex.User" table="User">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+    <property column="realname" name="realname"/>
+    <property column="country" name="country"/>
+    <property column="age" name="age"/>
+    <property column="gender" name="gender"/>
+    
+    <property column="playcount" name="playcount"/>
+
+
+    <list name="playlists" table="User_Playlist" cascade="none">
+            <key column="user_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="playlist_id" class="hiberex.Playlist"/>
+    </list>
+    <property column="regUnixtime" name="regUnixtime"/>
+    
+    <list name="events" table="User_Event" cascade="none">
+            <key column="user_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="event_id" class="hiberex.Event"/>
+    </list>
+
+     <list name="friends" table="User_User" cascade="none" >
+            <key column="user_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="user2_id" class="hiberex.User"/>
+    </list>
+    <list name="shouts" table="User_Shout" cascade="none">
+            <key column="user_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="shout_id" class="hiberex.Shout"/>
+    </list>
+
+     <list name="lovedtracks" table="User_LovedTrack" cascade="none">
+           <key column="user_id"/>
+           <index column="id" type="int"/>
+           <many-to-many column="track_id" class="hiberex.Track"/>
+    </list>
+    <list name="tracks" table="User_Track" cascade="none">
+            <key column="user_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="track_id" class="hiberex.Track"/>
+    </list>
+     <list name="toptags" table="User_Tag" cascade="none">
+            <key column="user_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="tag_id" class="hiberex.Tag"/>
+    </list>
+  </class>
+  <!--
+            VENUE
+                        -->
+  <class name="hiberex.Venue" table="Venue">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+    <property column="city" name="city"/>
+    <property column="country" name="country"/>
+  </class>
+  <!--
+            TAG
+                        -->
+  <class name="hiberex.Tag" table="Tag">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+    <property column="tagcount" name="tagcount"/>
+    <property column="url" name="url"/>
+  </class>
+  <!--
+            SHOUT
+                        -->
+  <class name="hiberex.Shout" table="Shout">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="body" name="body"/>
+    <property column="date" name="date"/>
+
+  
+
+    <many-to-one name="author" class="hiberex.User" column="author_id" not-null="true"/>
+  </class>
+  <!--
+            ARTIST
+                        -->
+  <class name="hiberex.Artist" table="Artist">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+    <property column="listeners" name="listeners"/>
+    <property column="plays" name="plays"/>
+    <property column="published" name="published"/>
+    <list name="similar" table="Artist_Artist" cascade="none">
+            <key column="artist_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="artist2_id" class="hiberex.Artist"/>
+    </list>
+     <list name="tags" table="Artist_Tag" cascade="none">
+            <key column="artist_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="tag_id" class="hiberex.Tag"/>
+    </list>
+    
+  </class>
+  <!--
+            ALBUM
+                        
+  <class name="hiberex.Album" table="Album">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+   
+    <property column="releasedate" name="releasedate"/>
+    <property column="listeners" name="listeners"/>
+    <property column="playcount" name="playcount"/>
+    <list name="toptags" table="Album_Tag" cascade="none">
+            <key column="album_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="tag_id" class="hiberex.Tag"/>
+    </list>
+     <list name="artist" table="Album_Artist" cascade="none">
+            <key column="album_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="artist_id" class="hiberex.Artist"/>
+    </list>
+    
+  </class>-->
+  <!--
+            EVENT
+                        -->
+  <class name="hiberex.Event" table="Event">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="title" name="title"/>
+
+      <list name="artists" table="Event_Artist" cascade="none">
+            <key column="event_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="artist_id" class="hiberex.Artist"/>
+    </list>
+     <list name="venue" table="Event_Venue" cascade="none">
+            <key column="event_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="venue_id" class="hiberex.Venue"/>
+    </list>
+    <property column="startDate" name="startDate"/>
+
+     <list name="attendees" table="User_Event" cascade="none">
+            <key column="event_id"/>
+            <index column="id" type="int"/>
+           <many-to-many column="user_id" class="hiberex.User"/>
+    </list>
+    
+   <list name="shouts" table="Event_Shout" cascade="none">
+            <key column="event_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="shout_id" class="hiberex.Shout"/>
+    </list>
+   <list name="tag" table="Event_Tag" cascade="none">
+            <key column="event_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="tag_id" class="hiberex.Tag"/>
+    </list>
+   
+  </class>
+  <!--
+            TRACK
+                        -->
+  <class name="hiberex.Track" table="Track">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+    <property column="listeners" name="listeners"/>
+    <property column="playcount" name="playcount"/>
+     <list name="artist" table="Artist_Track" cascade="none">
+            <key column="track_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="artist_id" class="hiberex.Artist"/>
+    </list>
+    <!-- <list name="album" table="Album_Track" cascade="none">
+            <key column="track_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="album_id" class="hiberex.Album"/>
+    </list>-->
+     <list name="tags" table="Track_Tag" cascade="none">
+            <key column="track_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="tag_id" class="hiberex.Tag"/>
+    </list>
+ 
+    
+    <property column="published" name="published"/>
+  </class>
+    <!--
+            GROUP
+                      -->
+  <class name="hiberex.Group" table="Group">
+    <id column="id" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name"/>
+    <list name="members" table="Group_User" cascade="none">
+            <key column="group_id"/>
+            <index column="id" type="int"/>
+            <many-to-many column="user_id" class="hiberex.User"/>
+    </list>
+  </class>
+
+
+</hibernate-mapping>
