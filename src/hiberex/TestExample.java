@@ -67,7 +67,7 @@ public class TestExample {
     s.put(0, us);
     ev.setAttendees(s);
     createObject(ev);*/
-
+/*
       System.out.println("start=="+AdditionalFunc.start);
       User us2=new User();
       System.out.println("user created");
@@ -113,7 +113,18 @@ public class TestExample {
       System.out.println("===========");
       // us2.delete();
       System.out.println("===========");
+*/
+      List<Object> uss=AdditionalFunc.getObject("User","name='jas2'",User.class);
+      for(Object us:uss){
+          User a=(User)us;
+          System.out.println(a.getName());
+      }
 
+      uss=AdditionalFunc.getObject("User",null,User.class);
+      for(Object us:uss){
+          User a=(User)us;
+          System.out.println(a.getName());
+      }
 
   }
 
