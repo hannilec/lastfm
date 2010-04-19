@@ -147,14 +147,18 @@ public class AdditionalFunc {
   }
 
   public static void listTable(String name) {
+      if(!start){
+        start=true;
     Transaction tx = null;
     Session session = SessionFactoryUtil.getInstance().getCurrentSession();
     try {
       tx = session.beginTransaction();
-      List lines = session.createQuery("select * from "+name).list();
+      List lines = session.createSQLQuery("select name from "+name).list();
+
       for (Iterator iter = lines.iterator(); iter.hasNext();) {
         Object element = (Object) iter.next();
         logger.debug("{}", element);
+        System.out.println(element);
       }
       tx.commit();
     } catch (RuntimeException e) {
@@ -171,8 +175,56 @@ public class AdditionalFunc {
 
 
     }
+    start=false;
   }
 
+
+  }
+
+    public static List<Object> getObject(String name,String dep,Class cls) {
+      if(!start){
+        start=true;
+    Transaction tx = null;
+    String query="select id from "+name;
+    if(dep!=null) query+=" where "+dep;
+    List<Object> res=new ArrayList();
+    Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+    try {
+      tx = session.beginTransaction();
+      List lines = session.createSQLQuery(query).list();
+
+      for (Iterator iter = lines.iterator(); iter.hasNext();) {
+        Object element = (Object) iter.next();
+        logger.debug("{}", element);
+        //System.out.println(element);
+       // String cls=name+".class";
+        res.add(session.get(cls, (Integer)element));
+        //System.out.println(usr.getName());
+      }
+      
+
+      //System.out.print(usr.getName());
+      tx.commit();
+    } catch (RuntimeException e) {
+      if (tx != null && tx.isActive()) {
+        try {
+// Second try catch as the rollback could fail as well
+          tx.rollback();
+        } catch (HibernateException e1) {
+          logger.debug("Error rolling back transaction");
+        }
+// throw again the first exception
+        throw e;
+      }
+
+
+    }
+    start=false;
+    return res;
+  }
+    return null;
+
+  }
 
    public static void createDatabase(){
 
