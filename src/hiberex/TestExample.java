@@ -18,6 +18,7 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.Date;
 import java.util.List;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 //import java.util.Map;
 //import java.util.Set;
@@ -117,11 +118,17 @@ public class TestExample {
 
       User u = User.getUserByName("mrocznaowca");
       System.out.println(u.getName());
-      u.getFriends().size();
+      //Hibernate.initialize(u);
+     // Hibernate.initialize(u.getFriends());
+      List<User> friends=u.getFriends();
+      System.out.println("ujjjj"+friends.size());
+      /*
+      for(User a:friends){
+          System.out.println(a.getName());
+      }*/
+     // printUsers();
 
-      printUsers();
-
-      System.out.println(User.getUserWithoutFriends());
+     // System.out.println(User.getUserWithoutFriends());
 
 
 

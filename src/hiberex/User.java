@@ -9,7 +9,10 @@ package hiberex;
 //import java.util.HashMap;
 //import java.util.ArrayList;
 import java.util.List;
+//import javax.transaction.Transaction;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 //import java.util.Map;
 
 /**
@@ -274,6 +277,15 @@ public class User {
      * @return the friends
      */
     public List getFriends() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.friends);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return friends;
     }
 

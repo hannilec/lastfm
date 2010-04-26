@@ -230,7 +230,7 @@ public class AdditionalFunc {
 
 
       start=true;
-    /*  List arg=new ArrayList<String>();
+      List arg=new ArrayList<String>();
       arg.add("id int, playlist_id int, track_id int");
       createTable("Playlist_Track",arg);
 
@@ -304,7 +304,7 @@ public class AdditionalFunc {
       arg=new ArrayList<String>();
       arg.add("id int, group_id int, user_id int");
       createTable("Group_User",arg);
-*/
+
 
 
     dropTable("Shout");
