@@ -18,6 +18,7 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.Date;
 import java.util.List;
+import org.hibernate.Session;
 //import java.util.Map;
 //import java.util.Set;
 
@@ -25,14 +26,12 @@ import java.util.List;
 //import org.hibernate.Query;
 //import org.hibernate.Session;
 //import org.hibernate.Transaction;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 //import de.laliluna.hibernate.SessionFactoryUtil;
 
 public class TestExample {
 
-  final static Logger logger = LoggerFactory.getLogger(TestExample.class);
 
   /**
    * @param args
@@ -114,34 +113,30 @@ public class TestExample {
       // us2.delete();
       System.out.println("===========");
 */
-      List<Object> uss=AdditionalFunc.getObject("User","name='jas2'",User.class);
+
+
+      User u = User.getUserByName("mrocznaowca");
+      System.out.println(u.getName());
+      u.getFriends().size();
+
+      printUsers();
+
+      System.out.println(User.getUserWithoutFriends());
+
+
+
+  }
+      private static void printUsers() {
+          System.out.println("== Users ==");
+      List<Object> uss=AdditionalFunc.getObject("User",null,User.class);
       for(Object us:uss){
           User a=(User)us;
           System.out.println(a.getName());
       }
-
-      uss=AdditionalFunc.getObject("User",null,User.class);
-      for(Object us:uss){
-          User a=(User)us;
-          System.out.println(a.getName());
+      System.out.println("== End ==");
       }
 
   }
 
-
-  
-
-  
-
-
-
-
-
-
-
-  
-
-
-}
 
 

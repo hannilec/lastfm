@@ -9,12 +9,14 @@ package hiberex;
 //import java.util.HashMap;
 //import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
 //import java.util.Map;
 
 /**
  *
  * @author robak
  */
+
 public class User {
         /**
             <id>1000002</id>
@@ -53,6 +55,32 @@ public class User {
         private AdditionalFunc af=AdditionalFunc.getInstance();
 
 
+    public static User getUserByName(String name) {
+        List<Object> res = AdditionalFunc.getObject("User", "name like '" + name +"'", User.class);
+
+        if (res.size() == 0)
+        {
+            User usr = new User();
+            usr.setName(name);
+            return usr;
+        }
+        if (res.size() == 1)
+            return (User)res.get(0);
+
+        return null;
+    }
+
+    public static User getUserWithoutFriends() {
+        List<Object> res = AdditionalFunc.getObject("User", null, User.class);
+        
+        for(Object o:res){
+            User u = (User)o;
+            u.getFriends();
+        }
+
+        return null;
+    }
+
      public User(){
          /*playlists=new ArrayList();
          events=new ArrayList();
@@ -61,8 +89,7 @@ public class User {
          lovedtracks=new ArrayList();
          tracks=new ArrayList();
          toptags=new ArrayList();*/
-
-         if(!af.start){
+                  if(!af.start){
              System.out.println("creating user");
              af.start=true;
              af.createObject(this);
@@ -71,8 +98,9 @@ public class User {
          }else{
              System.out.println("user ");
          }
-     }
 
+     }
+     
     public void delete(){
         af.deleteObject(this);
     }
