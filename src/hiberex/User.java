@@ -73,12 +73,25 @@ public class User {
         return null;
     }
 
+    public static List<User> getUsers(int limit)
+    {
+        List res = AdditionalFunc.getObject("User", "FETCH FIRST " + limit + " ROWS ONLY", User.class);
+        return res;
+    }
+    
+    public static List<User> getUsers()
+    {
+        List res = AdditionalFunc.getObject("User", null, User.class);
+        return res;
+    }
+
     public static User getUserWithoutFriends() {
         List<Object> res = AdditionalFunc.getObject("User", null, User.class);
         
         for(Object o:res){
             User u = (User)o;
-            u.getFriends();
+            if (u.getFriends().size() == 0)
+                return u;
         }
 
         return null;
@@ -276,7 +289,7 @@ public class User {
     /**
      * @return the friends
      */
-    public List getFriends() {
+    public List<User> getFriends() {
         Session session=SessionFactoryUtil.getInstance().getCurrentSession();
         Transaction tx = null;
         try {

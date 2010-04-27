@@ -21,15 +21,18 @@ public class Crawler {
     private static String key = "0d64b5ba5584e52f89f0648f1b384bff";
    
     public static void main(String[] args){
-        String name = "kiwiora";
-
-            addUserFriends(name);
+       hiberex.User u = null;
+        do
+        {
+            u = hiberex.User.getUserWithoutFriends();
+            System.out.println("== " + u.getName() + " ==");
+            addUserFriends(u);
+        } while (u != null);
         
     }
 
-    public static void addUserFriends(String name) {
-        hiberex.User user = hiberex.User.getUserByName(name);
-        Collection<User> friends = User.getFriends(name, key);
+    public static void addUserFriends(hiberex.User user) {
+        Collection<User> friends = User.getFriends(user.getName(), key);
         
         List l = new ArrayList();
         for(User usr : friends) {
