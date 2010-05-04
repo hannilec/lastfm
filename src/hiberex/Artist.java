@@ -75,6 +75,21 @@ public class Artist {
         }
     }
 
+    public static Artist getArtist(String artist) {
+        List<Object> res = AdditionalFunc.getObject("Artist", "name like '" + artist + "'", Artist.class);
+
+        if (res.size() == 0) {
+            Artist art = new Artist();
+            art.setName(artist);
+            return art;
+        }
+
+        if (res.size() == 1) {
+            return (Artist) res.get(0);
+        }
+
+        return null;
+    }
 //    private String type="Artist";
 
     /**

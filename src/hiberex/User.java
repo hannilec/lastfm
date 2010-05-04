@@ -97,6 +97,31 @@ public class User {
         return null;
     }
 
+    public static User getUserWithoutShouts() {
+        List<Object> res = AdditionalFunc.getObject("User", null, User.class);
+
+        for(Object o:res){
+            User u = (User)o;
+            if (u.getShouts().size() == 0)
+                return u;
+        }
+
+        return null;
+    }
+    
+    public static User getUserWithoutLoved() {
+        List<Object> res = AdditionalFunc.getObject("User", null, User.class);
+
+        for(Object o:res){
+            User u = (User)o;
+            if (u.getLovedtracks().size() == 0)
+                return u;
+        }
+
+        return null;
+    }
+
+
      public User(){
          /*playlists=new ArrayList();
          events=new ArrayList();

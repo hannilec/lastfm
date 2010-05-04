@@ -84,6 +84,23 @@ public class Track {
         }
     }
 
+    public static Track getTrack(String name, String artist) {
+        List<Object> res = AdditionalFunc.getObject("Track", "name like '" + name +"'",
+                                                             //"artist like '" + artist +"'",
+                                                             Track.class);
+
+        if (res.size() == 0)
+        {
+            Track track = new Track();
+            track.setName(name);
+            //track.setArtist(Artist.getArtist(artist));
+            return track;
+        }
+        if (res.size() == 1)
+            return (Track)res.get(0);
+
+        return null;
+    }
     /**
      * @return the name
      */

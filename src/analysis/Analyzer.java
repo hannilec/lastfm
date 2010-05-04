@@ -149,7 +149,7 @@ public class Analyzer  extends JApplet {
 
         Map<User, Number> vertices = new HashMap<User, Number>();
 
-        for(User u: User.getUsers(100)) {
+        for(User u: User.getUsers()) {
             vertices.put(u, vertexFactory.create());
             graph.addVertex(vertices.get(u));
         }
