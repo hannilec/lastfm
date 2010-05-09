@@ -270,6 +270,15 @@ public class User {
      * @return the playlists
      */
     public List getPlaylists() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.playlists);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return playlists;
     }
 
@@ -300,6 +309,15 @@ public class User {
      * @return the events
      */
     public List getEvents() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.events);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return events;
     }
 
@@ -339,6 +357,17 @@ public class User {
      * @return the shouts
      */
     public List getShouts() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.shouts);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
+
+
         return shouts;
     }
 
@@ -354,6 +383,15 @@ public class User {
      * @return the lovedtracks
      */
     public List getLovedtracks() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.lovedtracks);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return lovedtracks;
     }
 
@@ -384,6 +422,15 @@ public class User {
      * @return the tracks
      */
     public List getTracks() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.tracks);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return tracks;
     }
 
