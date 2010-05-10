@@ -69,6 +69,7 @@ import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
 import hiberex.User;
 import java.util.Dictionary;
+import java.util.HashSet;
 
 
 /**
@@ -149,16 +150,24 @@ public class Analyzer  extends JApplet {
 
         Map<User, Number> vertices = new HashMap<User, Number>();
 
-        for(User u: User.getUsers()) {
-            vertices.put(u, vertexFactory.create());
-            graph.addVertex(vertices.get(u));
+        
+        List<User> users = User.getUsers();
+        int max = (users.size() > 100) ? 100 : users.size();
+        
+        for(int i = 0; i < max; i++) {
+            vertices.put(users.get(i), vertexFactory.create());
+            graph.addVertex(vertices.get(users.get(i)));
+
         }
+
 
         for(User u: vertices.keySet()) {
             for(User f: u.getFriends()) {
-                graph.addEdge(edgeFactory.create(),
-                              vertices.get(u),
-                              vertices.get(f), EdgeType.DIRECTED);
+                if (vertices.containsKey(f)) {
+                    graph.addEdge(edgeFactory.create(),
+                            vertices.get(u),
+                            vertices.get(f), EdgeType.UNDIRECTED);
+                }
             }
         }
 

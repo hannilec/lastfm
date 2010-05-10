@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 //import java.util.List;
 import java.util.List;
+import org.apache.commons.lang.StringEscapeUtils;
 //import java.util.List;
 
 /**
@@ -80,12 +81,12 @@ public class Track {
             af.start=false;
             
         }else{
-             System.out.println("track ");
+             //System.out.println("track ");
         }
     }
 
     public static Track getTrack(String name, String artist) {
-        List<Object> res = AdditionalFunc.getObject("Track", "name like '" + name +"'",
+        List<Object> res = AdditionalFunc.getObject("Track", "name like '" + StringEscapeUtils.escapeSql(name) +"'",
                                                              //"artist like '" + artist +"'",
                                                              Track.class);
 

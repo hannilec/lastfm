@@ -137,7 +137,7 @@ public class User {
              System.out.println("usr creat");
              af.start=false;
          }else{
-             System.out.println("user ");
+             //System.out.println("user ");
          }
 
      }

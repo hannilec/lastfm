@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 //import java.util.Map;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.hibernate.HibernateException;
 
 import org.hibernate.Session;
@@ -42,7 +43,7 @@ public class AdditionalFunc {
     static boolean start=false;
 
   public static void createObject(Object obj) {
-    System.out.println("-------------------");
+    //System.out.println("-------------------");
     Transaction tx = null;
     Session session = SessionFactoryUtil.getInstance().getCurrentSession();
     try {
@@ -61,7 +62,7 @@ public class AdditionalFunc {
         throw e;
       }
     }
-    System.out.println("-------------------");    
+    //System.out.println("-------------------");
   }
 
 
@@ -126,7 +127,7 @@ public class AdditionalFunc {
       }
       query=query.substring(0,query.length()-1);
       query+=")";
-      System.out.println("result:"+query);
+      //System.out.println("result:"+query);
       tx = session.beginTransaction();
       session.createSQLQuery(query).executeUpdate();
 
@@ -157,8 +158,8 @@ public class AdditionalFunc {
 
       for (Iterator iter = lines.iterator(); iter.hasNext();) {
         Object element = (Object) iter.next();
-        logger.debug("{}", element);
-        System.out.println(element);
+        //logger.debug("{}", element);
+        //System.out.println(element);
       }
       tx.commit();
     } catch (RuntimeException e) {
@@ -186,7 +187,8 @@ public class AdditionalFunc {
         start=true;
     Transaction tx = null;
     String query="select id from "+name;
-    if(dep!=null) query+=" where "+dep;
+
+    if(dep!=null) query+=" where " + dep;
     List<Object> res=new ArrayList();
     Session session = SessionFactoryUtil.getInstance().getCurrentSession();
     try {
@@ -195,7 +197,7 @@ public class AdditionalFunc {
 
       for (Iterator iter = lines.iterator(); iter.hasNext();) {
         Object element = (Object) iter.next();
-        logger.debug("{}", element);
+        //logger.debug("{}", element);
         //System.out.println(element);
        // String cls=name+".class";
         res.add(session.get(cls, (Integer)element));
@@ -338,7 +340,7 @@ public class AdditionalFunc {
       Field[] fs=obj.getClass().getDeclaredFields();
       List<String> fields=new ArrayList<String>();
      if(additional!=null) fields.add(additional);
-      System.out.println(obj.getClass().getSimpleName());
+      //System.out.println(obj.getClass().getSimpleName());
       //query+=obj.getClass().getSimpleName();
       //query+=" (";
       String field;

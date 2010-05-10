@@ -25,6 +25,7 @@ public class LovedCrawler {
        hiberex.User u = null;
         do
         {
+            System.out.println("looping");
             u = hiberex.User.getUserWithoutLoved();
             System.out.println("== " + u.getName() + " ==");
             addLoved(u);
@@ -33,15 +34,18 @@ public class LovedCrawler {
     }
 
     public static void addLoved(hiberex.User user) {
+        System.out.println("LovedTracks: " + user.getName());
         Collection<Track> tracks =  User.getLovedTracks(user.getName(), Crawler.KEY);
         
 
         List l = new ArrayList();
         for(Track trc : tracks) {
+            System.out.println(trc.getName());
             hiberex.Track track = hiberex.Track.getTrack(trc.getName(), trc.getArtist());
             l.add(track);
-        }
 
+        }
+        System.out.println("Saving loved tracks");
         user.setLovedtracks(l);
     }
 }
