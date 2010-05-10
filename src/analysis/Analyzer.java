@@ -121,55 +121,12 @@ public class Analyzer  extends JApplet {
 	}
 
 	public void start() {
-		InputStream is = this.getClass().getClassLoader().getResourceAsStream("datasets/zachary.net");
-		BufferedReader br = new BufferedReader( new InputStreamReader( is ));
-
-        try
-        {
-            setUpView(br);
-        }
-        catch (IOException e)
-        {
-            System.out.println("Error in loading graph");
-            e.printStackTrace();
-        }
+            setUpView();
 	}
 
-	private void setUpView(BufferedReader br) throws IOException {
+	private void setUpView() {
 
-    	Factory<Number> vertexFactory = new Factory<Number>() {
-            int n = 0;
-            public Number create() { return n++; }
-        };
-        Factory<Number> edgeFactory = new Factory<Number>()  {
-            int n = 0;
-            public Number create() { return n++; }
-        };
-
-        final Graph<Number,Number> graph = new SparseMultigraph<Number, Number>();
-
-        Map<User, Number> vertices = new HashMap<User, Number>();
-
-        
-        List<User> users = User.getUsers();
-        int max = (users.size() > 100) ? 100 : users.size();
-        
-        for(int i = 0; i < max; i++) {
-            vertices.put(users.get(i), vertexFactory.create());
-            graph.addVertex(vertices.get(users.get(i)));
-
-        }
-
-
-        for(User u: vertices.keySet()) {
-            for(User f: u.getFriends()) {
-                if (vertices.containsKey(f)) {
-                    graph.addEdge(edgeFactory.create(),
-                            vertices.get(u),
-                            vertices.get(f), EdgeType.UNDIRECTED);
-                }
-            }
-        }
+        Graph<Number,Number> graph = GraphFactory.CreateFriendsGraph(100);
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm
