@@ -22,15 +22,13 @@ import net.roarsoftware.lastfm.User;
  */
 public class LovedCrawler {
     public static void main(String[] args){
-       hiberex.User u = null;
-        do
-        {
-            System.out.println("looping");
-            u = hiberex.User.getUserWithoutLoved();
-            System.out.println("== " + u.getName() + " ==");
-            addLoved(u);
-        } while (u != null);
-
+        for (hiberex.User u : hiberex.User.getUsers()) {
+            if (u.getLovedtracks().size() == 0) {
+                System.out.println("== " + u.getName() + " ==");
+                addLoved(u);
+            }
+        }
+        System.out.println("end");
     }
 
     public static void addLoved(hiberex.User user) {

@@ -25,10 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.geom.Point2D;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -48,7 +45,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import org.apache.commons.collections15.Factory;
 import org.apache.commons.collections15.Transformer;
 import org.apache.commons.collections15.functors.ConstantTransformer;
 import org.apache.commons.collections15.functors.MapTransformer;
@@ -62,14 +58,11 @@ import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.algorithms.layout.util.Relaxer;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
-import edu.uci.ics.jung.graph.util.EdgeType;
-import edu.uci.ics.jung.io.PajekNetReader;
+
 import edu.uci.ics.jung.visualization.GraphZoomScrollPane;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
-import hiberex.User;
-import java.util.Dictionary;
-import java.util.HashSet;
+
 
 
 /**
@@ -82,6 +75,7 @@ import java.util.HashSet;
 @SuppressWarnings("serial")
 public class Analyzer  extends JApplet {
 
+        Grapher grapher;
 	VisualizationViewer<Number,Number> vv;
 
 //	Factory<Graph<Number,Number>> graphFactory;
@@ -110,6 +104,7 @@ public class Analyzer  extends JApplet {
 	public static void main(String[] args) throws IOException {
 
 		Analyzer cd = new Analyzer();
+                cd.grapher = new Grapher();
 		cd.start();
 		// Add a restart button so the graph can be redrawn to fit the size of the frame
 		JFrame jf = new JFrame();
@@ -126,7 +121,7 @@ public class Analyzer  extends JApplet {
 
 	private void setUpView() {
 
-        Graph<Number,Number> graph = GraphFactory.CreateFriendsGraph(100);
+        Graph<Number,Number> graph = grapher.CreateFriendsGraph(100);
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm
@@ -269,6 +264,7 @@ public class Analyzer  extends JApplet {
 		Set<Set<Number>> clusterSet = clusterer.transform(g);
 		List<Number> edges = clusterer.getEdgesRemoved();
 
+                System.out.println(grapher.Report(clusterSet));
 		int i = 0;
 		//Set the colors of each node so that each cluster's vertices have the same color
 		for (Iterator<Set<Number>> cIt = clusterSet.iterator(); cIt.hasNext();) {
