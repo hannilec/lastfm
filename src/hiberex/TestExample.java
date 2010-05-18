@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 //import java.util.Map;
 //import java.util.Set;
 
@@ -115,13 +117,15 @@ public class TestExample {
       System.out.println("===========");
 */
 
-
+    /*
       User u = User.getUserByName("mrocznaowca");
       System.out.println(u.getName());
       //Hibernate.initialize(u);
      // Hibernate.initialize(u.getFriends());
       List<User> friends=u.getFriends();
       System.out.println("ujjjj"+friends.size());
+     * */
+     
       /*
       for(User a:friends){
           System.out.println(a.getName());
@@ -129,13 +133,57 @@ public class TestExample {
      // printUsers();
 
      // System.out.println(User.getUserWithoutFriends());
+     //Track tr=new Track();
+     //tr.addColumn();
+      //AdditionalFunc af=AdditionalFunc.getInstance();
+     // af.listTable("Track");
+      /*Track tr=new Track();
+      tr.setName("bubu2");*/
+      /*Artist art=Artist.getArtist("stynka");
+      List trs=art.getTracks();
+      for(Object tr:trs){
+          Track t=(Track)tr;
+          System.out.println(t.getName());
+      }*/
+      //List<User>
+       //       User noobs=User.getUserWithoutFriends();
+      //System.out.println(noobs.getName());
+      //for(User u:noobs){
+        //  System.out.println(u.getName());
+      //}
+      //tr.setArtist(art);
+      /*List trs=Track.getTracks();
+      for(Object tr:trs){
+          Track t=(Track)tr;
+          System.out.println(t.getName());
+      }*/
+      Track tr=Track.getTrack("Hello, I Love You", null);
+      List<User> fans=tr.getFans();
+      System.out.println(fans.size());
+      //tr.setArtist(art);
+     /* Artist a=Artist.getArtist("stynka");
+      if(a!=null){
+          System.out.println("byl");
+          a.delete();
+      }*/
+      //Track r=Track.getTrack("bububu", null);
+      //if(r!=null){
+        //r.delete();
+      //r=Track.getTrack("bububu", null);
+      //}
 
+      /*if(r!=null){
+
+        System.out.println(r.getName());
+      //r.delete();
+        System.out.println(r.getArtist().getName()+"id:"+r.getArtist().getId());
+      }*/
 
 
   }
       private static void printUsers() {
           System.out.println("== Users ==");
-      List<Object> uss=AdditionalFunc.getObject("User",null,User.class);
+      List<Object> uss=AdditionalFunc.getObject("User",null,null,User.class);
       for(Object us:uss){
           User a=(User)us;
           System.out.println(a.getName());

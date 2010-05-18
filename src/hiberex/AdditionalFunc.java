@@ -159,7 +159,7 @@ public class AdditionalFunc {
       for (Iterator iter = lines.iterator(); iter.hasNext();) {
         Object element = (Object) iter.next();
         //logger.debug("{}", element);
-        //System.out.println(element);
+        System.out.println(element);
       }
       tx.commit();
     } catch (RuntimeException e) {
@@ -182,17 +182,24 @@ public class AdditionalFunc {
 
   }
 
-    public static List<Object> getObject(String name,String dep,Class cls) {
+    public static List<Object> getObject(String name,String adddep,String dep,Class cls) {
       if(!start){
         start=true;
     Transaction tx = null;
-    String query="select id from "+name;
-
+    String dot="";
+    if(name.indexOf('_')==-1){
+        dot+=".";
+    }else{
+        dot+=".user_";
+    }
+    String query="select "+name+dot+"id from "+name;    /*  TODO    */
+    if(adddep!=null) query+=" "+adddep;//joins and so
     if(dep!=null) query+=" where " + dep;
     List<Object> res=new ArrayList();
     Session session = SessionFactoryUtil.getInstance().getCurrentSession();
     try {
       tx = session.beginTransaction();
+      System.out.println("Q:"+query);
       List lines = session.createSQLQuery(query).list();
 
       for (Iterator iter = lines.iterator(); iter.hasNext();) {
@@ -334,7 +341,7 @@ public class AdditionalFunc {
     start=false;
   }
 
-  private static void createTableForObject(Object obj,String additional){
+private static void createTableForObject(Object obj,String additional){
 
 
       Field[] fs=obj.getClass().getDeclaredFields();
@@ -408,6 +415,29 @@ public class AdditionalFunc {
           }
 
 
+        }
+  }
+
+
+  public static void alterTable(String name){
+         Transaction tx = null;
+        Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+        try {
+          tx = session.beginTransaction();
+          session.createSQLQuery("alter table Track add column artist_id int").executeUpdate();
+
+          tx.commit();
+        } catch (RuntimeException e) {
+        if (tx != null && tx.isActive()) {
+            try {
+    // Second try catch as the rollback could fail as well
+              tx.rollback();
+            } catch (HibernateException e1) {
+              //logger.debug("Error rolling back transaction");
+            }
+    // throw again the first exception
+            throw e;
+          }
         }
   }
 

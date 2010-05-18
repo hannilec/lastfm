@@ -5,11 +5,14 @@
 
 package hiberex;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Date;
 //import java.util.List;
 import java.util.List;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 //import java.util.List;
 
 /**
@@ -63,7 +66,7 @@ public class Track {
     private long listeners;
     private long playcount;
 
-    private List artist;
+    private Artist artist;
    // private List album;
     private List tags;
     private Date published;
@@ -86,22 +89,56 @@ public class Track {
     }
 
     public static Track getTrack(String name, String artist) {
-        List<Object> res = AdditionalFunc.getObject("Track", "name like '" + StringEscapeUtils.escapeSql(name) +"'",
+        List<Object> res = AdditionalFunc.getObject("Track",null, "name like '" + StringEscapeUtils.escapeSql(name) +"'",
                                                              //"artist like '" + artist +"'",
                                                              Track.class);
 
         if (res.size() == 0)
         {
+            System.out.println("not found");
             Track track = new Track();
             track.setName(name);
             //track.setArtist(Artist.getArtist(artist));
             return track;
         }
-        if (res.size() == 1)
+        if (res.size() == 1){
+            System.out.println("jest"+res.size());
             return (Track)res.get(0);
-
+        }
+            
         return null;
     }
+
+    public static List<Track> getTracks(){
+        List res=AdditionalFunc.getObject("Track", null, null, Track.class);
+        return res;
+    }
+
+
+    public static List<Track> getArtistTrack(String artist){
+        List<Object> art=AdditionalFunc.getObject("Artist",null,"name like '" + StringEscapeUtils.escapeSql(artist) +"'" , Artist.class);
+        if(art.size()==0){
+            System.out.println("nie ma takiego art");
+        }else{
+            System.out.println("ilosc"+art.size());
+            Artist myArt=(Artist)art.get(0);
+            System.out.println("ID:"+myArt.getId());
+            List tracks=AdditionalFunc.getObject("Track",null, "artist_id = "+myArt.getId(), Track.class);
+            System.out.println("tracks found:"+tracks.size());
+            return tracks;
+        }
+        return null;
+    }
+
+
+    public List<User> getFans(){
+       // List all=AdditionalFunc.getObject("User_Track", null, null, User.class);
+       // System.out.println("wpisow:"+all.size());
+        List art=AdditionalFunc.getObject("User_Track",null,"track_id="+this.id , User.class);
+        return art;
+    }
+
+
     /**
      * @return the name
      */
@@ -182,14 +219,23 @@ public class Track {
     /**
      * @return the artist
      */
-    public List getArtist() {
+    public Artist getArtist() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.artist);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return artist;
     }
 
     /**
      * @param artist the artist to set
      */
-    public void setArtist(List artist) {
+    public void setArtist(Artist artist) {
         this.artist = artist;
         af.updateObject(this);
     }
@@ -209,8 +255,13 @@ public class Track {
         af.updateObject(this);
     }
 
+    public void addColumn(){
+        af.alterTable("Track");
+    }
 
-
+    public void delete(){
+        af.deleteObject(this);
+    }
 
    
 }

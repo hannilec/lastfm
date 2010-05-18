@@ -59,7 +59,7 @@ public class User {
 
 
     public static User getUserByName(String name) {
-        List<Object> res = AdditionalFunc.getObject("User", "name like '" + name +"'", User.class);
+        List<Object> res = AdditionalFunc.getObject("User",null, "name like '" + name +"'", User.class);
 
         if (res.size() == 0)
         {
@@ -75,30 +75,31 @@ public class User {
 
     public static List<User> getUsers(int limit)
     {
-        List res = AdditionalFunc.getObject("User", "FETCH FIRST " + limit + " ROWS ONLY", User.class);
+        List res = AdditionalFunc.getObject("User",null, "FETCH FIRST " + limit + " ROWS ONLY", User.class);
         return res;
     }
     
     public static List<User> getUsers()
     {
-        List res = AdditionalFunc.getObject("User", null, User.class);
+        List res = AdditionalFunc.getObject("User",null, null, User.class);
         return res;
     }
 
-    public static User getUserWithoutFriends() {
-        List<Object> res = AdditionalFunc.getObject("User", null, User.class);
-        
-        for(Object o:res){
+    public static List<User> getUserWithoutFriends() {
+        List res = AdditionalFunc.getObject("User", "left join User_User as Friends on User.id = Friends.user_id","Friends.user_id is null", User.class);
+        //select * from User left outer join User_User on User.id = User_User.user2_id;
+
+        /*for(Object o:res){
             User u = (User)o;
             if (u.getFriends().size() == 0)
                 return u;
-        }
+        }*/
 
-        return null;
+        return res;
     }
 
     public static User getUserWithoutShouts() {
-        List<Object> res = AdditionalFunc.getObject("User", null, User.class);
+        List<Object> res = AdditionalFunc.getObject("User",null, null, User.class);
 
         for(Object o:res){
             User u = (User)o;
@@ -110,7 +111,7 @@ public class User {
     }
     
     public static User getUserWithoutLoved() {
-        List<Object> res = AdditionalFunc.getObject("User", null, User.class);
+        List<Object> res = AdditionalFunc.getObject("User",null, null, User.class);
 
         for(Object o:res){
             User u = (User)o;
@@ -130,7 +131,7 @@ public class User {
          lovedtracks=new ArrayList();
          tracks=new ArrayList();
          toptags=new ArrayList();*/
-                  if(!af.start){
+         if(!af.start){
              System.out.println("creating user");
              af.start=true;
              af.createObject(this);

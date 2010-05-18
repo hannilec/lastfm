@@ -76,9 +76,10 @@ public class Artist {
     }
 
     public static Artist getArtist(String artist) {
-        List<Object> res = AdditionalFunc.getObject("Artist", "name like '" + artist + "'", Artist.class);
+        List<Object> res = AdditionalFunc.getObject("Artist",null, "name like '" + artist + "'", Artist.class);
 
         if (res.size() == 0) {
+            System.out.println("nie bylo--tworze");
             Artist art = new Artist();
             art.setName(artist);
             return art;
@@ -199,4 +200,13 @@ public class Artist {
         this.tags = tags;
         af.updateObject(this);
     }
+
+      public void delete(){
+        af.deleteObject(this);
+    }
+
+      public List<Track> getTracks(){
+          List tracks=AdditionalFunc.getObject("Track",null, "artist_id = "+this.id, Track.class);
+          return tracks;
+      }
 }

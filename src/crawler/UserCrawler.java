@@ -20,13 +20,15 @@ import net.roarsoftware.lastfm.User;
 public class UserCrawler {
    
     public static void main(String[] args){
-       hiberex.User u = null;
+       /*hiberex.User u = null;
         do
         {
             u = hiberex.User.getUserWithoutFriends();
             System.out.println("== " + u.getName() + " ==");
             addUserFriends(u);
         } while (u != null);
+        * 
+        */
         
     }
 
