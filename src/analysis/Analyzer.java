@@ -75,7 +75,7 @@ import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
 @SuppressWarnings("serial")
 public class Analyzer  extends JApplet {
 
-        Grapher grapher;
+        GraphFactory grapher;
 	VisualizationViewer<Number,Number> vv;
 
 //	Factory<Graph<Number,Number>> graphFactory;
@@ -104,7 +104,7 @@ public class Analyzer  extends JApplet {
 	public static void main(String[] args) throws IOException {
 
 		Analyzer cd = new Analyzer();
-                cd.grapher = new Grapher();
+                cd.grapher = new GraphFactory();
 		cd.start();
 		// Add a restart button so the graph can be redrawn to fit the size of the frame
 		JFrame jf = new JFrame();
@@ -121,7 +121,7 @@ public class Analyzer  extends JApplet {
 
 	private void setUpView() {
 
-        Graph<Number,Number> graph = grapher.CreateFriendsGraph(100);
+        Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Loved");
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm
