@@ -383,7 +383,7 @@ public class User {
     /**
      * @return the lovedtracks
      */
-    public List getLovedtracks() {
+    public List<Track> getLovedtracks() {
         Session session=SessionFactoryUtil.getInstance().getCurrentSession();
         Transaction tx = null;
         try {

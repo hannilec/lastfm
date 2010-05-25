@@ -12,6 +12,8 @@ package hiberex;
 //package de.laliluna.example;
 
 //import java.lang.reflect.Field;
+import analysis.GraphFactory;
+import edu.uci.ics.jung.graph.Graph;
 import java.util.ArrayList;
 //import java.util.HashMap;
 //import java.util.HashSet;
@@ -157,9 +159,17 @@ public class TestExample {
           Track t=(Track)tr;
           System.out.println(t.getName());
       }*/
-      Track tr=Track.getTrack("Hello, I Love You", null);
-      List<User> fans=tr.getFans();
-      System.out.println(fans.size());
+
+      /*List<User> us=User.getUsers();
+      for(User u:us){
+          System.out.println("---------"+u.getName()+"---------");
+          for(Track t:u.getLovedtracks()){
+              System.out.println(t.getName());
+          }
+          System.out.print("---------------------------------");
+      }*/
+     // Graph g=GraphFactory.CreateUsersGraph(100, "Loved");
+     // g.
       //tr.setArtist(art);
      /* Artist a=Artist.getArtist("stynka");
       if(a!=null){

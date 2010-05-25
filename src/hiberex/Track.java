@@ -134,10 +134,15 @@ public class Track {
     public List<User> getFans(){
        // List all=AdditionalFunc.getObject("User_Track", null, null, User.class);
        // System.out.println("wpisow:"+all.size());
-        List art=AdditionalFunc.getObject("User_Track",null,"track_id="+this.id , User.class);
+        List art=AdditionalFunc.getObject("User_LovedTrack",null,"track_id="+this.id , User.class);
         return art;
     }
 
+
+    public int getFansSize(){
+         return AdditionalFunc.getCount("User_LovedTrack", "track_id="+this.id);
+        //return (Integer)art.get(0);
+    }
 
     /**
      * @return the name

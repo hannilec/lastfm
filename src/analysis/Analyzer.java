@@ -264,7 +264,7 @@ public class Analyzer  extends JApplet {
 		Set<Set<Number>> clusterSet = clusterer.transform(g);
 		List<Number> edges = clusterer.getEdgesRemoved();
 
-                System.out.println(grapher.Report(clusterSet));
+                //System.out.println(grapher.Report(clusterSet));
 		int i = 0;
 		//Set the colors of each node so that each cluster's vertices have the same color
 		for (Iterator<Set<Number>> cIt = clusterSet.iterator(); cIt.hasNext();) {

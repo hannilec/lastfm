@@ -64,7 +64,7 @@ public class Grapher {
         return graph;
     }
 
-    public String Report(Set<Set<Number>> clusters) {
+    public String Report(Set<Set<Number>> clusters,List<User> users) {
         String res = "";
         int i = 0;
         int sum = 0;

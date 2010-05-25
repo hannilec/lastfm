@@ -182,6 +182,47 @@ public class AdditionalFunc {
 
   }
 
+
+    public static int getCount(String name,String dep){
+        Transaction tx = null;
+
+        int res=0;
+        String query="select count(id) from "+name;    /*  TODO    */
+    //if(adddep!=null) query+=" "+adddep;//joins and so
+    if(dep!=null) query+=" where " + dep;
+    //List<Object> res=new ArrayList();
+    Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+    try {
+      tx = session.beginTransaction();
+      System.out.println("Q:"+query);
+      List lines = session.createSQLQuery(query).list();
+
+      if(lines!=null && lines.size()>0){
+          res=(Integer)lines.get(0);
+      }
+
+
+      //System.out.print(usr.getName());
+      tx.commit();
+    } catch (RuntimeException e) {
+      if (tx != null && tx.isActive()) {
+        try {
+// Second try catch as the rollback could fail as well
+          tx.rollback();
+        } catch (HibernateException e1) {
+          logger.debug("Error rolling back transaction");
+        }
+// throw again the first exception
+        throw e;
+      }
+
+
+    }
+    return res;
+
+    }
+
+
     public static List<Object> getObject(String name,String adddep,String dep,Class cls) {
       if(!start){
         start=true;
