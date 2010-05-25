@@ -8,6 +8,7 @@ package analysis;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
 import edu.uci.ics.jung.graph.util.EdgeType;
+import hiberex.Pair;
 import hiberex.Track;
 import hiberex.User;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class GraphFactory {
     }
 
     protected Graph<Number,Number> graph;
-    protected List<User> users;
+    protected List<Integer> users;
 
     
     public Graph<Number, Number> CreateUsersGraph(int max,String type) {
@@ -43,7 +44,7 @@ public class GraphFactory {
 
         graph = new SparseMultigraph<Number, Number>();
 
-        Map<User, Number> vertices = new HashMap<User, Number>();
+        
 
 
         /*users = User.getUsers();
@@ -58,8 +59,8 @@ public class GraphFactory {
 
 
         if(type.equals("Friends")){
-
-            users = User.getUsers();
+            Map<Number, Number> vertices = new HashMap<Number, Number>();
+            users = User.getUserIds();
             max = (users.size() > max) ? max : users.size();
 
             for(int i = 0; i < max; i++) {
@@ -71,6 +72,7 @@ public class GraphFactory {
 
             return CreateFriendsGraph(vertices,graph);
         }else if(type.equals("Loved")){
+            Map<Number, Number> vertices = new HashMap<Number, Number>();
             return CreateLovedGraph(vertices,graph,max);
         }
 
@@ -80,7 +82,7 @@ public class GraphFactory {
 
 
 
-    private Graph<Number, Number> CreateLovedGraph(Map<User, Number> vertices,Graph<Number,Number> graph,int max){
+    private Graph<Number, Number> CreateLovedGraph(Map<Number, Number> vertices,Graph<Number,Number> graph,int max){
 
 
         Factory<Number> edgeFactory = new Factory<Number>()  {
@@ -91,14 +93,7 @@ public class GraphFactory {
             int n = 0;
             public Number create() { return n++; }
         };
-        class Pair{
-            Track tr;
-            int nr;
-            public Pair(Track tr,int nr){
-                this.tr=tr;
-                this.nr=nr;
-            }
-        }
+        
         class MC implements Comparator{
             public int compare(Object o1,Object o2){
                 Pair a=(Pair)o1;
@@ -110,18 +105,32 @@ public class GraphFactory {
             }
 
         }
+        
         List set=new ArrayList();
-        List<Track> trs=Track.getTracks();
+        List<Integer> trs=Track.getTrackIds();
+        System.out.println("got ids");
+        List<Pair> ltr=Track.getLoved();
+        for(int trid:trs){
+            int size=getSize(trid,ltr);
+            set.add(new Pair(trid,size));
+        }
         //System.out.println("SIZE:"+trs.size());
-        for(Track tr:trs){
-            int size=tr.getFansSize();
+        
+       /* for(Pair a:ltr){
+            //int size=getSize(ltr,a);
+            System.out.println("track "+a.trid+" user "+a.nr);
+        }*/
+
+
+        /*for(int tr:trs){
+            int size=Track.getFansSize(tr);
             if(size>1){
                 //System.out.println("adding: "+tr.getName()+" "+size);
                 set.add(new Pair(tr,size));
             }
             //if(set.size()>2443) break;
-        }
-
+        }*/
+        System.out.println("set builded");
        //set.sort(set,new MC());
        Collections.sort(set, new MC());
        //Iterator it=set.iterator();
@@ -132,10 +141,10 @@ public class GraphFactory {
        int usc=0;
        //users=User.getUsers();
        for(int i=set.size()-1;i>0;i--){
-           Track act=((Pair)set.get(i)).tr;
-           List<User> fans=act.getFans();
-           for(User u:fans){
-               for(User v:fans){
+           int act=((Pair)set.get(i)).trid;
+           List<Integer> fans=getFans(act,ltr);
+           for(Integer u:fans){
+               for(Integer v:fans){
                    if(u!=v){
 
                        if(!vertices.containsKey(u) && usc<max){
@@ -172,7 +181,7 @@ public class GraphFactory {
     }
 
 
-    public Graph<Number, Number> CreateFriendsGraph(Map<User, Number> vertices,Graph<Number,Number> graph){
+    public Graph<Number, Number> CreateFriendsGraph(Map<Number, Number> vertices,Graph<Number,Number> graph){
 
 
         Factory<Number> edgeFactory = new Factory<Number>()  {
@@ -181,8 +190,11 @@ public class GraphFactory {
         };
 
 
-         for(User u: vertices.keySet()) {
-            for(User f: u.getFriends()) {
+        List<Pair> friends=User.getFriendsTab();
+
+        System.out.println("friendstab"+friends.size());
+         for(Number u: vertices.keySet()) {
+            for(Integer f:getFriends(u,friends)) {
                 if (vertices.containsKey(f)) {
                     graph.addEdge(edgeFactory.create(),
                             vertices.get(u),
@@ -193,7 +205,7 @@ public class GraphFactory {
         return graph;
     }
 
-        public String Report(Set<Set<Number>> clusters) {
+       /* public String Report(Set<Set<Number>> clusters) {
         String res = "";
         int i = 0;
         int sum = 0;
@@ -217,5 +229,40 @@ public class GraphFactory {
         res = "Avg number of friends: " + friendstotal/sum + "\n" + res;
 
         return res;
+    }*/
+
+    private int getSize(int trid,List<Pair> lst) {
+
+        int size=0;
+        for(Pair a:lst){
+            if(trid==a.trid) size++;
+        }
+        return size;
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
+
+    private List<Integer> getFans(int act,List<Pair> lst) {
+
+        List<Integer> res=new ArrayList();
+
+        for(Pair a:lst){
+            if(act==a.trid) res.add(a.nr);
+        }
+        return res;
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private List<Integer> getFriends(Number u, List<Pair> friends) {
+        System.out.println("looking for: "+u);
+        System.out.println(friends.size());
+        List<Integer> res=new ArrayList();
+        for(Pair a:friends){
+            //System.out.println(a.trid+" "+a.nr);
+            if(u.equals(a.trid)) res.add(a.nr);
+        }
+        return res;
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+
 }

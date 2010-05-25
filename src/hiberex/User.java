@@ -21,6 +21,11 @@ import org.hibernate.Transaction;
  */
 
 public class User {
+
+
+
+
+
         /**
             <id>1000002</id>
             <name>RJ</name>
@@ -56,6 +61,12 @@ public class User {
         private List tracks;
 
         private AdditionalFunc af=AdditionalFunc.getInstance();
+
+
+    public static List<Integer> getUserIds() {
+        return AdditionalFunc.getIds("User", null);
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
 
 
     public static User getUserByName(String name) {
@@ -354,6 +365,9 @@ public class User {
         af.updateObject(this);
     }
 
+    public static List<Pair> getFriendsTab(){
+        return AdditionalFunc.getFriends("User_User");
+    }
     /**
      * @return the shouts
      */

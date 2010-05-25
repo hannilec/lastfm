@@ -114,6 +114,11 @@ public class Track {
         return res;
     }
 
+    public static List<Integer> getTrackIds(){
+        List<Integer> res=AdditionalFunc.getIds("Track", null);
+
+        return res;
+    }
 
     public static List<Track> getArtistTrack(String artist){
         List<Object> art=AdditionalFunc.getObject("Artist",null,"name like '" + StringEscapeUtils.escapeSql(artist) +"'" , Artist.class);
@@ -138,12 +143,27 @@ public class Track {
         return art;
     }
 
+    public static List<User> getFans(int id){
+       // List all=AdditionalFunc.getObject("User_Track", null, null, User.class);
+       // System.out.println("wpisow:"+all.size());
+        List art=AdditionalFunc.getObject("User_LovedTrack",null,"track_id="+id , User.class);
+        return art;
+    }
 
     public int getFansSize(){
          return AdditionalFunc.getCount("User_LovedTrack", "track_id="+this.id);
         //return (Integer)art.get(0);
     }
 
+    public static int getFansSize(int id){
+         return AdditionalFunc.getCount("User_LovedTrack", "track_id="+id);
+        //return (Integer)art.get(0);
+    }
+
+
+    public static List<Pair> getLoved(){
+        return AdditionalFunc.getLoved("User_LovedTrack");
+    }
     /**
      * @return the name
      */

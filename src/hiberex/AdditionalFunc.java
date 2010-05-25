@@ -26,6 +26,8 @@ import org.slf4j.LoggerFactory;
 public class AdditionalFunc {
 
    private static AdditionalFunc instance = null;
+
+
    protected AdditionalFunc() {
       // Exists only to defeat instantiation.
    }
@@ -183,7 +185,7 @@ public class AdditionalFunc {
   }
 
 
-    public static int getCount(String name,String dep){
+      public static int getCount(String name,String dep){
         Transaction tx = null;
 
         int res=0;
@@ -194,7 +196,7 @@ public class AdditionalFunc {
     Session session = SessionFactoryUtil.getInstance().getCurrentSession();
     try {
       tx = session.beginTransaction();
-      System.out.println("Q:"+query);
+      //System.out.println("Q:"+query);
       List lines = session.createSQLQuery(query).list();
 
       if(lines!=null && lines.size()>0){
@@ -218,9 +220,168 @@ public class AdditionalFunc {
 
 
     }
+
+
+
     return res;
 
     }
+
+
+      public static List<Pair> getLoved(String name){
+
+              if(!start){
+        start=true;
+        Transaction tx = null;
+
+        List<Pair> res=new ArrayList();
+        List list=null;
+        String query="select track_id,user_id  from "+name;
+        //if(adddep!=null) query+=" "+adddep;//joins and so
+        //if(dep!=null) query+=" where " + dep;
+        //List<Object> res=new ArrayList();
+        Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+        try {
+          tx = session.beginTransaction();
+          //System.out.println("Q:"+query);
+          list = session.createSQLQuery(query).list();
+          for(Object ob:list){
+              Object[] obt=(Object[])ob;
+              /*System.out.println(obt.length);
+              for(Object a:obt){
+                  System.out.println();
+              }*/
+              res.add(new Pair((Integer)obt[0],(Integer)obt[1]));
+          }
+
+
+
+          //System.out.print(usr.getName());
+          tx.commit();
+        } catch (RuntimeException e) {
+          if (tx != null && tx.isActive()) {
+            try {
+    // Second try catch as the rollback could fail as well
+              tx.rollback();
+            } catch (HibernateException e1) {
+              logger.debug("Error rolling back transaction");
+            }
+    // throw again the first exception
+            throw e;
+          }
+
+
+        }
+
+
+        start=false;
+    return res;}
+         return null;
+
+    }
+
+
+    public static List<Pair> getFriends(String name) {
+         if(!start){
+        start=true;
+        Transaction tx = null;
+
+        List<Pair> res=new ArrayList();
+        List list=null;
+        String query="select user_id, user2_id  from "+name;
+        //if(adddep!=null) query+=" "+adddep;//joins and so
+        //if(dep!=null) query+=" where " + dep;
+        //List<Object> res=new ArrayList();
+        Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+        try {
+          tx = session.beginTransaction();
+          //System.out.println("Q:"+query);
+          list = session.createSQLQuery(query).list();
+          for(Object ob:list){
+              Object[] obt=(Object[])ob;
+              /*System.out.println(obt.length);
+              for(Object a:obt){
+                  System.out.println();
+              }*/
+              res.add(new Pair((Integer)obt[0],(Integer)obt[1]));
+          }
+
+
+
+          //System.out.print(usr.getName());
+          tx.commit();
+        } catch (RuntimeException e) {
+          if (tx != null && tx.isActive()) {
+            try {
+    // Second try catch as the rollback could fail as well
+              tx.rollback();
+            } catch (HibernateException e1) {
+              logger.debug("Error rolling back transaction");
+            }
+    // throw again the first exception
+            throw e;
+          }
+
+
+        }
+
+
+        start=false;
+    return res;}
+         return null;
+
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+
+    public static List<Integer> getIds(String name,String dep){
+         if(!start){
+        start=true;
+        Transaction tx = null;
+
+        List<Integer> res=null;
+        String query="select id from "+name;    
+        //if(adddep!=null) query+=" "+adddep;//joins and so
+        if(dep!=null) query+=" where " + dep;
+        //List<Object> res=new ArrayList();
+        Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+        try {
+          tx = session.beginTransaction();
+          //System.out.println("Q:"+query);
+          res = session.createSQLQuery(query).list();
+
+          
+
+
+          //System.out.print(usr.getName());
+          tx.commit();
+        } catch (RuntimeException e) {
+          if (tx != null && tx.isActive()) {
+            try {
+    // Second try catch as the rollback could fail as well
+              tx.rollback();
+            } catch (HibernateException e1) {
+              logger.debug("Error rolling back transaction");
+            }
+    // throw again the first exception
+            throw e;
+          }
+
+
+        }
+
+
+        start=false;
+    return res;}
+         return null;
+
+    }
+
+
+
+
+
+
 
 
     public static List<Object> getObject(String name,String adddep,String dep,Class cls) {
