@@ -12,7 +12,7 @@ package hiberex;
 //package de.laliluna.example;
 
 //import java.lang.reflect.Field;
-import analysis.GraphFactory;
+//import GraphFactory;
 import edu.uci.ics.jung.graph.Graph;
 import java.util.ArrayList;
 //import java.util.HashMap;

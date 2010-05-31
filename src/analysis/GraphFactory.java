@@ -1,9 +1,11 @@
+package analysis;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package analysis;
+//package src;
 
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
@@ -19,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.commons.collections15.Factory;
-
+import hiberex.AdditionalFunc;
 /**
  *
  * @author wrozka
@@ -31,8 +33,8 @@ public class GraphFactory {
     }
 
     protected Graph<Number,Number> graph;
-    protected List<Integer> users;
-
+    protected List<Integer> usersid;
+    protected Map<Number, Number> vertices;
     
     public Graph<Number, Number> CreateUsersGraph(int max,String type) {
 
@@ -56,23 +58,23 @@ public class GraphFactory {
 
         }*/
 
-
+        vertices = new HashMap<Number, Number>();
 
         if(type.equals("Friends")){
-            Map<Number, Number> vertices = new HashMap<Number, Number>();
-            users = User.getUserIds();
-            max = (users.size() > max) ? max : users.size();
+           // = new HashMap<Number, Number>();
+            usersid = User.getUserIds();
+            max = (usersid.size() > max) ? max : usersid.size();
 
             for(int i = 0; i < max; i++) {
-                vertices.put(users.get(i), vertexFactory.create());
-                graph.addVertex(vertices.get(users.get(i)));
+                vertices.put(usersid.get(i), vertexFactory.create());
+                graph.addVertex(vertices.get(usersid.get(i)));
 
             }
 
 
             return CreateFriendsGraph(vertices,graph);
         }else if(type.equals("Loved")){
-            Map<Number, Number> vertices = new HashMap<Number, Number>();
+            //Map<Number, Number> vertices = new HashMap<Number, Number>();
             return CreateLovedGraph(vertices,graph,max);
         }
 
@@ -205,21 +207,34 @@ public class GraphFactory {
         return graph;
     }
 
-       /* public String Report(Set<Set<Number>> clusters) {
+    public String Report(Set<Set<Number>> clusters) {
         String res = "";
         int i = 0;
         int sum = 0;
         int friendstotal = 0;
+        //List<User> users=User.getUsers();
+        //Map<Number,Number> usid=new HashMap<Number,Number>();
+
+
+
+        Map<Number,User> users=getUsers(vertices);
+
+       /* for(Number n:users.keySet()){
+            System.out.println(n+" --- "+users.get(n));
+        }*/
+
         for(Set<Number> s : clusters) {
             res += "= Cluster: " + i + " =\n";
             res += "Count: " + s.size() + "\n";
             res += "Content: \n";
             int friendssum = 0;
             for(Number n : s) {
+                //System.out.println("look for:"+n);
                 res += "- " + users.get(n.intValue()).getName() + "\n";
                 friendssum += users.get(n.intValue()).getFriends().size();
             }
             res += "Avg number of friends: " + friendssum / s.size() + "\n";
+            //res +=""+"\n";
             sum += s.size();
             friendstotal += friendssum;
             i++;
@@ -229,7 +244,7 @@ public class GraphFactory {
         res = "Avg number of friends: " + friendstotal/sum + "\n" + res;
 
         return res;
-    }*/
+    }
 
     private int getSize(int trid,List<Pair> lst) {
 
@@ -253,8 +268,8 @@ public class GraphFactory {
     }
 
     private List<Integer> getFriends(Number u, List<Pair> friends) {
-        System.out.println("looking for: "+u);
-        System.out.println(friends.size());
+        //System.out.println("looking for: "+u);
+        //System.out.println(friends.size());
         List<Integer> res=new ArrayList();
         for(Pair a:friends){
             //System.out.println(a.trid+" "+a.nr);
@@ -263,6 +278,15 @@ public class GraphFactory {
         return res;
         //throw new UnsupportedOperationException("Not yet implemented");
     }
-
+    private Map<Number,User> getUsers(Map<Number,Number> vertices){//key-id.val-int++
+        List<User> us=AdditionalFunc.getUsersById(vertices.keySet());
+                //.getUsersById(vertices.keySet());
+        Map<Number,User> res=new HashMap<Number,User>();
+        int i=0;
+        for(User u:us){
+            res.put(i++, u);
+        }
+        return res;
+    }
 
 }

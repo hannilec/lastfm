@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 //import java.util.Map;
+import java.util.Set;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.hibernate.HibernateException;
 
@@ -380,6 +381,49 @@ public class AdditionalFunc {
 
 
 
+    public static List<User> getUsersById(Set<Number> usids){
+        List<User> us=null;
+        if(!start){
+            start=true;
+            Transaction tx = null;
+
+            us=new ArrayList<User>();
+            Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+            try {
+            tx = session.beginTransaction();
+
+
+
+            for (Iterator iter = usids.iterator(); iter.hasNext();) {
+                Object element = (Object) iter.next();
+
+                us.add((User)session.get(User.class, (Integer)element));
+
+            }
+
+
+
+            tx.commit();
+            } catch (RuntimeException e) {
+                if (tx != null && tx.isActive()) {
+                    try {
+    // Second try catch as the rollback could fail as well
+                        tx.rollback();
+                    } catch (HibernateException e1) {
+                        logger.debug("Error rolling back transaction");
+                    }
+    // throw again the first exception
+                throw e;
+                }
+
+
+           }
+           start=false;
+    //return res;
+        }
+
+        return us;
+    }
 
 
 
