@@ -121,7 +121,7 @@ public class Analyzer  extends JApplet {
 
 	private void setUpView() {
 
-        Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Friends");
+        Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Loved");
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm

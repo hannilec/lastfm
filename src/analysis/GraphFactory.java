@@ -7,6 +7,9 @@ package analysis;
 
 //package src;
 
+import edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality;
+import edu.uci.ics.jung.algorithms.scoring.PageRank;
+import edu.uci.ics.jung.algorithms.scoring.VertexScorer;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
 import edu.uci.ics.jung.graph.util.EdgeType;
@@ -22,6 +25,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.commons.collections15.Factory;
 import hiberex.AdditionalFunc;
+import java.util.Collection;
 /**
  *
  * @author wrozka
@@ -207,41 +211,80 @@ public class GraphFactory {
         return graph;
     }
 
+    private double[] getNumberOfFriends(Map<Number, User> users) {
+        double[] numbers = new double[users.size()];
+
+        for(int i = 0; i < users.size(); i++)
+            numbers[i] = graph.getNeighborCount(i);
+
+        return numbers;
+    }
+
+    private double[] getRanks(Set<Number> indices, VertexScorer<Number, Double> scorer) {
+        double[] numbers = new double[indices.size()];
+
+        int i = 0;
+        for(Number n : indices)
+            numbers[i++] = scorer.getVertexScore(n);
+
+        return numbers;
+    }
+    
+    
     public String Report(Set<Set<Number>> clusters) {
+        BetweennessCentrality centralityRanker = new BetweennessCentrality(graph);
+        PageRank pageRanker = new PageRank(graph, 0.15);
+        pageRanker.acceptDisconnectedGraph(true);
+        pageRanker.evaluate();
+
         String res = "";
         int i = 0;
-        int sum = 0;
-        int friendstotal = 0;
-        //List<User> users=User.getUsers();
-        //Map<Number,Number> usid=new HashMap<Number,Number>();
 
+        final Map<Number,User> users=getUsers(vertices);
 
+        double totalFriendsAvg = MathHelper.Avg(getNumberOfFriends(users));
+        double totalFriendsStdDev = MathHelper.StdDev(getNumberOfFriends(users));
 
-        Map<Number,User> users=getUsers(vertices);
+        double totalBcAvg = MathHelper.Avg(getRanks(users.keySet(), centralityRanker));
+        double totalBcStdDev = MathHelper.StdDev(getRanks(users.keySet(), centralityRanker));
 
-       /* for(Number n:users.keySet()){
-            System.out.println(n+" --- "+users.get(n));
-        }*/
-
+        double totalPrAvg = MathHelper.Avg(getRanks(users.keySet(), pageRanker));
+        double totalPrStdDev = MathHelper.StdDev(getRanks(users.keySet(), pageRanker));
+        
         for(Set<Number> s : clusters) {
             res += "= Cluster: " + i + " =\n";
             res += "Count: " + s.size() + "\n";
+
+            VertexScorer<Number, Double> friendScorer = new VertexScorer<Number, Double>() {
+                public Double getVertexScore(Number v) {
+                    return (double)graph.getNeighborCount(v);
+                }
+            };
+
+            res += "Avg Friends: " + MathHelper.Avg(getRanks(s, friendScorer)) + "\n";
+            res += "StdDev Friends: " + MathHelper.StdDev(getRanks(s, friendScorer)) + "\n";
+            res += "Avg PR: " + MathHelper.Avg(getRanks(s, pageRanker)) + "\n";
+            res += "StdDev PR: " + MathHelper.StdDev(getRanks(s, pageRanker)) + "\n";
+            res += "Avg BC: " + MathHelper.Avg(getRanks(s, centralityRanker)) + "\n";
+            res += "StdDev BC: " + MathHelper.StdDev(getRanks(s, centralityRanker)) + "\n";
+
             res += "Content: \n";
-            int friendssum = 0;
             for(Number n : s) {
-                //System.out.println("look for:"+n);
-                res += "- " + users.get(n.intValue()).getName() + "\n";
-                friendssum += users.get(n.intValue()).getFriends().size();
+                res += " " + users.get(n.intValue()).getName() + "\n";
+                res += "  - Friends: " + graph.getNeighborCount(n) + "\n";
+                res += "  - PR: " + pageRanker.getVertexScore(n) + "\n";
+                res += "  - BC: " + centralityRanker.getVertexScore(n) + "\n";
             }
-            res += "Avg number of friends: " + friendssum / s.size() + "\n";
-            //res +=""+"\n";
-            sum += s.size();
-            friendstotal += friendssum;
             i++;
         }
         res = "Number of clusters: " + i + "\n" + res;
-        res = "Avg number of members: " + sum/i + "\n" + res;
-        res = "Avg number of friends: " + friendstotal/sum + "\n" + res;
+        res = "Total Avg number of members: " + graph.getVertexCount() / i + "\n" + res;
+        res = "Total Avg number of friends: " + totalFriendsAvg + "\n" + res;
+        res = "Total StdDev friends: " + totalFriendsStdDev + "\n" + res;
+        res = "Total Avg PR: " + totalPrAvg + "\n" + res;
+        res = "Total StdDev PR: " + totalPrStdDev + "\n" + res;
+        res = "Total Avg BC: " + totalBcAvg + "\n" + res;
+        res = "Total StdDev BC: " + totalBcStdDev + "\n" + res;
 
         return res;
     }

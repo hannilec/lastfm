@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import net.roarsoftware.lastfm.Event;
 import net.roarsoftware.lastfm.Session;
 import net.roarsoftware.lastfm.Track;
 import net.roarsoftware.lastfm.User;
@@ -34,7 +35,6 @@ public class LovedCrawler {
     public static void addLoved(hiberex.User user) {
         System.out.println("LovedTracks: " + user.getName());
         Collection<Track> tracks =  User.getLovedTracks(user.getName(), Crawler.KEY);
-        
 
         List l = new ArrayList();
         for(Track trc : tracks) {
