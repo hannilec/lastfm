@@ -16,6 +16,7 @@ import edu.uci.ics.jung.graph.util.EdgeType;
 import hiberex.Pair;
 import hiberex.Track;
 import hiberex.User;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,9 +24,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.collections15.Factory;
 import hiberex.AdditionalFunc;
+import java.io.File;
 import java.util.Collection;
+import org.apache.commons.io.FileUtils;
 /**
  *
  * @author wrozka
@@ -230,8 +235,15 @@ public class GraphFactory {
         return numbers;
     }
     
-    
-    public String Report(Set<Set<Number>> clusters) {
+    public void SaveReport(String filename, Set<Set<Number>> clusters, boolean printUsers) {
+        try {
+            FileUtils.writeStringToFile(new File(filename), Report(clusters, printUsers));
+        } catch (IOException ex) {
+            Logger.getLogger(GraphFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public String Report(Set<Set<Number>> clusters, boolean printUsers) {
         BetweennessCentrality centralityRanker = new BetweennessCentrality(graph);
         PageRank pageRanker = new PageRank(graph, 0.15);
         pageRanker.acceptDisconnectedGraph(true);
@@ -268,12 +280,14 @@ public class GraphFactory {
             res += "Avg BC: " + MathHelper.Avg(getRanks(s, centralityRanker)) + "\n";
             res += "StdDev BC: " + MathHelper.StdDev(getRanks(s, centralityRanker)) + "\n";
 
-            res += "Content: \n";
-            for(Number n : s) {
-                res += " " + users.get(n.intValue()).getName() + "\n";
-                res += "  - Friends: " + graph.getNeighborCount(n) + "\n";
-                res += "  - PR: " + pageRanker.getVertexScore(n) + "\n";
-                res += "  - BC: " + centralityRanker.getVertexScore(n) + "\n";
+            if (printUsers) {
+                res += "Content: \n";
+                for(Number n : s) {
+                    res += " " + users.get(n.intValue()).getName() + "\n";
+                    res += "  - Friends: " + graph.getNeighborCount(n) + "\n";
+                    res += "  - PR: " + pageRanker.getVertexScore(n) + "\n";
+                    res += "  - BC: " + centralityRanker.getVertexScore(n) + "\n";
+                }
             }
             i++;
         }

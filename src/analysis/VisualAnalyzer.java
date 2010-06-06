@@ -73,7 +73,7 @@ import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
  * @author Scott White
  */
 @SuppressWarnings("serial")
-public class Analyzer  extends JApplet {
+public class VisualAnalyzer  extends JApplet {
 
         GraphFactory grapher;
 	VisualizationViewer<Number,Number> vv;
@@ -103,7 +103,7 @@ public class Analyzer  extends JApplet {
 
 	public static void main(String[] args) throws IOException {
 
-		Analyzer cd = new Analyzer();
+		VisualAnalyzer cd = new VisualAnalyzer();
                 cd.grapher = new GraphFactory();
 		cd.start();
 		// Add a restart button so the graph can be redrawn to fit the size of the frame
@@ -264,7 +264,7 @@ public class Analyzer  extends JApplet {
 		Set<Set<Number>> clusterSet = clusterer.transform(g);
 		List<Number> edges = clusterer.getEdgesRemoved();
 
-                System.out.println(grapher.Report(clusterSet));
+                grapher.SaveReport(numEdgesToRemove + "visual.txt",clusterSet, true);
 		int i = 0;
 		//Set the colors of each node so that each cluster's vertices have the same color
 		for (Iterator<Set<Number>> cIt = clusterSet.iterator(); cIt.hasNext();) {
