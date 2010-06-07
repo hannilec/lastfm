@@ -219,7 +219,7 @@ public class GraphFactory {
     }
 
 
-     public Graph<Number, Number> CreateEventsGraph(int max,EvParams params){
+     public Graph<Number, Number> CreateEventsGraph(EvParams params){
 
         //Date from=params.getFrom();
         Factory<Number> vertexFactory = new Factory<Number>() {

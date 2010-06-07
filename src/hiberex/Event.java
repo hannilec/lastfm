@@ -92,7 +92,7 @@ public class Event {
             af.createObject(this);
             af.start=false;
         }else{
-             System.out.println("events ");
+            // System.out.println("events ");
         }
     }
 
@@ -104,7 +104,7 @@ public class Event {
             af.createObject(this);
             af.start=false;
         }else{
-             System.out.println("events ");
+             //System.out.println("events ");
         }
     }
    
