@@ -15,6 +15,7 @@ import java.util.Set;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.hibernate.HibernateException;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
@@ -188,7 +189,7 @@ public class AdditionalFunc {
 
       public static int getCount(String name,String dep){
         Transaction tx = null;
-
+        dep=escapeString(dep);
         int res=0;
         String query="select count(id) from "+name;    /*  TODO    */
     //if(adddep!=null) query+=" "+adddep;//joins and so
@@ -338,6 +339,7 @@ public class AdditionalFunc {
     public static List<Integer> getIds(String name,String dep){
          if(!start){
         start=true;
+        dep=escapeString(dep);
         Transaction tx = null;
 
         List<Integer> res=null;
@@ -426,11 +428,23 @@ public class AdditionalFunc {
     }
 
 
+    private static String escapeString(String str){
+        if(str==null) return null;
+        int k;
+        while((k=str.indexOf('\''))!=-1){
+            str.replace("\'", "\'\'");
+        }
+        return str;
+    }
+
 
 
     public static List<Object> getObject(String name,String adddep,String dep,Class cls) {
       if(!start){
         start=true;
+        adddep=escapeString(adddep);
+        dep=escapeString(dep);
+
     Transaction tx = null;
     String dot="";
     if(name.indexOf('_')==-1){
@@ -440,7 +454,11 @@ public class AdditionalFunc {
     }
     String query="select "+name+dot+"id from "+name;    /*  TODO    */
     if(adddep!=null) query+=" "+adddep;//joins and so
-    if(dep!=null) query+=" where " + dep;
+
+    if(dep!=null && !dep.contains("FETCH")) query+=" where " + dep;
+        else if(dep!=null) query+=" " + dep;
+
+
     List<Object> res=new ArrayList();
     Session session = SessionFactoryUtil.getInstance().getCurrentSession();
     try {
@@ -560,7 +578,9 @@ public class AdditionalFunc {
       arg.add("id int, group_id int, user_id int");
       createTable("Group_User",arg);
 
-
+      arg=new ArrayList<String>();
+      arg.add("id int, event_id int, artist_id int");
+      createTable("Event_Artist",arg);
 
     dropTable("Shout");
     dropTable("Venue");
@@ -583,7 +603,8 @@ public class AdditionalFunc {
     //createTableForObject(new Group(),null);
 
     createTableForObject(new Shout(),null);
-
+    
+    
     start=false;
   }
 

@@ -93,6 +93,17 @@ public class Event {
         }
     }
 
+    public Event(String title,Date date){
+           if(!af.start){
+            af.start=true;
+                this.title=title;
+                this.startDate=date;
+            af.createObject(this);
+            af.start=false;
+        }else{
+             System.out.println("events ");
+        }
+    }
    
     /**
      * @return the title
@@ -191,6 +202,14 @@ public class Event {
         af.updateObject(this);
     }
 
+    public void addAttendees(User u){
+        if(this.attendees==null){
+            this.attendees=new ArrayList();
+        }
+        this.attendees.add(u);
+        af.updateObject(this);
+    }
+
     /**
      * @return the shouts
      */
@@ -222,6 +241,12 @@ public class Event {
     }
 
 
+    public static List<Event> getAllEvents(){
+        List lst=AdditionalFunc.getObject("Event", null, null, Event.class);
+        System.out.println(lst.size());
+        System.out.println("got it");
+        return lst;
+    }
 
 
 

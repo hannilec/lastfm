@@ -8,6 +8,7 @@ package hiberex;
 //import java.util.ArrayList;
 //import java.util.HashMap;
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 //import javax.transaction.Transaction;
 import org.hibernate.Hibernate;
@@ -338,6 +339,16 @@ public class User {
      */
     public void setEvents(List events) {
         this.events = events;
+        af.updateObject(this);
+    }
+
+
+
+    public void addEvent(Event e){
+        if(this.events==null){
+            this.events=new ArrayList();
+        }
+        this.events.add(e);
         af.updateObject(this);
     }
 
