@@ -35,7 +35,7 @@ public class EventCrawler {
         System.out.println(evInDB.size());
         System.out.println("===================================");
         for(hiberex.Event e:evInDB){
-            System.out.println(e.getTitle());
+            //System.out.println(e.getTitle());
         }
         System.out.println("===================================");
 
