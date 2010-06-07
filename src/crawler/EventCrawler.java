@@ -94,7 +94,7 @@ public class EventCrawler {
 
             //if more than one page
             for(int i=2;i<=pages;i++){
-                pagevents=User.getPastEvents(u.getName(), i, 1000, Crawler.KEY);
+                pagevents=User.getPastEvents(u.getName(), i, 50, Crawler.KEY);
                 pageResults = pagevents.getPageResults();
                 for(Event e:pageResults){
                     System.out.println(e.getTitle());
