@@ -62,6 +62,7 @@ import edu.uci.ics.jung.graph.SparseMultigraph;
 import edu.uci.ics.jung.visualization.GraphZoomScrollPane;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
+import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
 
 
 
@@ -143,8 +144,9 @@ public class VisualAnalyzer  extends JApplet {
 		});
 
 		vv.getRenderContext().setEdgeDrawPaintTransformer(MapTransformer.<Number,Paint>getInstance(edgePaints));
-
+                vv.getRenderContext().setVertexLabelTransformer(new UserLabeller(grapher.getUsers()));
 		vv.getRenderContext().setEdgeStrokeTransformer(new Transformer<Number,Stroke>() {
+
                 protected final Stroke THIN = new BasicStroke(1);
                 protected final Stroke THICK= new BasicStroke(2);
                 public Stroke transform(Number e)

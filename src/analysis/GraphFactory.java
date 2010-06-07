@@ -335,7 +335,11 @@ public class GraphFactory {
         return res;
         //throw new UnsupportedOperationException("Not yet implemented");
     }
-    private Map<Number,User> getUsers(Map<Number,Number> vertices){//key-id.val-int++
+    public Map<Number, User> getUsers() {
+        return getUsers(vertices);
+    }
+    
+    public Map<Number,User> getUsers(Map<Number,Number> vertices){//key-id.val-int++
         List<User> us=AdditionalFunc.getUsersById(vertices.keySet());
                 //.getUsersById(vertices.keySet());
         Map<Number,User> res=new HashMap<Number,User>();
