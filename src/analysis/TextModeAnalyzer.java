@@ -28,7 +28,8 @@ public class TextModeAnalyzer {
         GraphFactory graphFactory = new GraphFactory();
         
         System.out.println("creating graph " + Now());
-        Graph<Number, Number> graph = graphFactory.CreateUsersGraph("Friends");
+        Graph<Number, Number> graph = graphFactory.CreateUsersGraph(100,"Loved");
+
         System.out.println("graph created " + Now());
 
         EdgeBetweennessClusterer<Number, Number> clusterer = new EdgeBetweennessClusterer<Number, Number>(edgesToRemove);

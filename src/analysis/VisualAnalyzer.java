@@ -122,6 +122,15 @@ public class VisualAnalyzer  extends JApplet {
 
 	private void setUpView() {
 
+        /*
+         Calendar c=Calendar.getInstance();
+
+         c.set(2010,07,03);
+         Graph<Number,Number> graph=grapher.CreateEventsGraph(100, new EvParams(c,100));
+
+         */
+
+
         Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Loved");
 
 		//Create a simple layout frame

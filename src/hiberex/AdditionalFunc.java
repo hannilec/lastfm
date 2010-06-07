@@ -230,7 +230,7 @@ public class AdditionalFunc {
     }
 
 
-      public static List<Pair> getLoved(String name){
+      public static List<Pair> getPairs(String name, String first, String sec){
 
               if(!start){
         start=true;
@@ -238,7 +238,7 @@ public class AdditionalFunc {
 
         List<Pair> res=new ArrayList();
         List list=null;
-        String query="select track_id,user_id  from "+name;
+        String query="select "+first+","+sec+" from "+name;
         //if(adddep!=null) query+=" "+adddep;//joins and so
         //if(dep!=null) query+=" where " + dep;
         //List<Object> res=new ArrayList();
@@ -283,7 +283,7 @@ public class AdditionalFunc {
     }
 
 
-    public static List<Pair> getFriends(String name) {
+    /*public static List<Pair> getFriends(String name) {
          if(!start){
         start=true;
         Transaction tx = null;
@@ -301,10 +301,7 @@ public class AdditionalFunc {
           list = session.createSQLQuery(query).list();
           for(Object ob:list){
               Object[] obt=(Object[])ob;
-              /*System.out.println(obt.length);
-              for(Object a:obt){
-                  System.out.println();
-              }*/
+           
               res.add(new Pair((Integer)obt[0],(Integer)obt[1]));
           }
 
@@ -335,17 +332,18 @@ public class AdditionalFunc {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-
+*/
     public static List<Integer> getIds(String name,String dep){
          if(!start){
         start=true;
-        dep=escapeString(dep);
+        //dep=escapeString(dep);
         Transaction tx = null;
 
         List<Integer> res=null;
         String query="select id from "+name;    
         //if(adddep!=null) query+=" "+adddep;//joins and so
         if(dep!=null) query+=" where " + dep;
+        System.out.println("Q:"+query);
         //List<Object> res=new ArrayList();
         Session session = SessionFactoryUtil.getInstance().getCurrentSession();
         try {
