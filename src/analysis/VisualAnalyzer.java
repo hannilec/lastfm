@@ -127,7 +127,7 @@ public class VisualAnalyzer  extends JApplet {
          Calendar c=Calendar.getInstance();
 
          c.set(2010,07,03);
-         Graph<Number,Number> graph=grapher.CreateEventsGraph(new EvParams(c,1000));
+         Graph<Number,Number> graph=grapher.CreateEventsGraph(new EvParams(c,100));
 
          
 
