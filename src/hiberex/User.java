@@ -377,7 +377,7 @@ public class User {
     }
 
     public static List<Pair> getFriendsTab(){
-        return AdditionalFunc.getFriends("User_User");
+        return AdditionalFunc.getPairs("User_User","user_id","user2_id");
     }
     /**
      * @return the shouts

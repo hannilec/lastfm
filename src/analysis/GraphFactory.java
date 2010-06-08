@@ -29,6 +29,8 @@ import java.util.logging.Logger;
 import org.apache.commons.collections15.Factory;
 import hiberex.AdditionalFunc;
 import java.io.File;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.Collection;
 import org.apache.commons.io.FileUtils;
 /**
@@ -216,6 +218,92 @@ public class GraphFactory {
         return graph;
     }
 
+
+     public Graph<Number, Number> CreateEventsGraph(EvParams params){
+
+        //Date from=params.getFrom();
+        Factory<Number> vertexFactory = new Factory<Number>() {
+            int n = 0;
+            public Number create() { return n++; }
+        };
+
+        Factory<Number> edgeFactory = new Factory<Number>()  {
+            int n = 0;
+            public Number create() { return n++; }
+        };
+
+        graph = new SparseMultigraph<Number, Number>();
+        vertices = new HashMap<Number, Number>();
+
+
+        List<Pair> eventAtt=AdditionalFunc.getPairs("User_Event","user_id","event_id");
+
+       /* for(Pair p:eventAtt){
+            System.out.println(p.trid+" "+p.nr);
+        }*/
+        List<Integer> eventIds;
+        List<Integer> atts;
+
+        //System.out.println("getEvents");
+        if(params.getTo()!=null){
+            eventIds=getEvents(params.getFrom(),params.getTo());
+        }else{
+            eventIds=getEvents(params.getFrom(),params.getMax());
+        }
+
+       /* for(Integer i:eventIds){
+            System.out.println(i);
+        }*/
+       // System.out.println("creating");
+        for(Integer ev:eventIds){
+            atts=getAttendees(ev,eventAtt);
+            //System.out.println("--------------------");
+            for(Integer u:atts){
+
+               // System.out.println("att: "+u);
+
+                if(!vertices.containsKey(u)){
+                    vertices.put(u, vertexFactory.create());
+                    graph.addVertex(vertices.get(u));
+                }
+                for(Integer f:atts){
+                    if(!f.equals(u)){
+                        if(!vertices.containsKey(f)){
+                            vertices.put(f, vertexFactory.create());
+                            graph.addVertex(vertices.get(f));
+
+                            graph.addEdge(edgeFactory.create(),
+                                    vertices.get(u),
+                                    vertices.get(f), EdgeType.UNDIRECTED);
+
+                        }else if(!graph.isNeighbor(vertices.get(f), vertices.get(u))){
+                            graph.addEdge(edgeFactory.create(),
+                                    vertices.get(u),
+                                    vertices.get(f), EdgeType.UNDIRECTED);
+                        }
+
+
+
+                    }
+                }
+            }
+        }
+
+
+       /* for(Number a:vertices.keySet()){
+            System.out.println("vert:"+a+" "+vertices.get(a));
+        }*/
+
+
+        return graph;
+    }
+
+
+
+
+
+
+
     private double[] getNumberOfFriends(Map<Number, User> users) {
         double[] numbers = new double[users.size()];
 
@@ -364,4 +452,34 @@ public class GraphFactory {
         return res;
     }
 
+
+     private List<Integer> getEvents(Calendar from, int max) {
+        System.out.println("getting");
+        String dep= "(startDate > date(\'"+new Date(from.getTimeInMillis())+"\')) FETCH FIRST "+max+" ROWS ONLY";
+        //String dep= "(startDate > "+from.getTime()+" FETCH FIRST "+max+" ROWS ONLY";
+
+        //System.out.println(dep);
+        return AdditionalFunc.getIds("Event",dep);
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    private List<Integer> getEvents(Calendar from, Calendar to) {
+
+        List<Integer> ls=AdditionalFunc.getIds("Event", "startDate between  date(\'"+new Date(from.getTimeInMillis())+ "\') and  date(\'"+new Date(to.getTimeInMillis())+"\')");
+        return ls;
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+
+    private List<Integer> getAttendees(Integer ev,List<Pair> eventAtt) {
+
+        List<Integer> res=new ArrayList<Integer>();
+
+        for(Pair p:eventAtt){
+            if(p.nr==ev) res.add(p.trid);
+        }
+
+        return res;
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
 }

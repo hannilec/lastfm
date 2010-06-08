@@ -63,6 +63,7 @@ import edu.uci.ics.jung.visualization.GraphZoomScrollPane;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
 import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
+import java.util.Calendar;
 
 
 
@@ -122,7 +123,16 @@ public class VisualAnalyzer  extends JApplet {
 
 	private void setUpView() {
 
-        Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Loved");
+        
+         Calendar c=Calendar.getInstance();
+
+         c.set(2010,07,03);
+         Graph<Number,Number> graph=grapher.CreateEventsGraph(new EvParams(c,1000));
+
+         
+
+
+   //     Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Loved");
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm

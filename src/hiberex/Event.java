@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 //import java.util.List;
 import java.util.List;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -89,7 +92,7 @@ public class Event {
             af.createObject(this);
             af.start=false;
         }else{
-             System.out.println("events ");
+            // System.out.println("events ");
         }
     }
 
@@ -101,7 +104,7 @@ public class Event {
             af.createObject(this);
             af.start=false;
         }else{
-             System.out.println("events ");
+             //System.out.println("events ");
         }
     }
    
@@ -191,6 +194,15 @@ public class Event {
      * @return the attendees
      */
     public List getAttendees() {
+        Session session=SessionFactoryUtil.getInstance().getCurrentSession();
+        Transaction tx = null;
+        try {
+          tx = session.beginTransaction();
+          Hibernate.initialize(this.attendees);
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
         return attendees;
     }
 
