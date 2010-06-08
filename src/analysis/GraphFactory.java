@@ -300,6 +300,20 @@ public class GraphFactory {
         res = "Total Avg BC: " + totalBcAvg + "\n" + res;
         res = "Total StdDev BC: " + totalBcStdDev + "\n" + res;
 
+        i = 0;
+        res += "\n\n";
+        for(Set<Number> s : clusters) {
+            res += "Cluster: " + i + "\n";
+
+            for(Number n : s) {
+                res += users.get(n.intValue()).getName() + "\t";
+                res += graph.getNeighborCount(n) + "\t";
+                res += pageRanker.getVertexScore(n) + "\t";
+                res += centralityRanker.getVertexScore(n) + "\t\n";
+            }
+            
+            i++;
+        }
         return res;
     }
 

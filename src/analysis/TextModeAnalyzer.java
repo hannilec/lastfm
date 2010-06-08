@@ -24,11 +24,11 @@ public class TextModeAnalyzer {
         return sdf.format(new Date());
     }
     public static void main(String[] args) {
-        int edgesToRemove = 80;
-        GraphFactory graphFactory = new GraphFactory();
+        int edgesToRemove = 100;
+        GraphFactory graphFactory= new GraphFactory();
         
         System.out.println("creating graph " + Now());
-        Graph<Number, Number> graph = graphFactory.CreateUsersGraph("Friends");
+        Graph<Number, Number> graph = graphFactory.CreateUsersGraph(300, "Friends");
         System.out.println("graph created " + Now());
 
         EdgeBetweennessClusterer<Number, Number> clusterer = new EdgeBetweennessClusterer<Number, Number>(edgesToRemove);
