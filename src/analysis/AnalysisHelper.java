@@ -33,6 +33,24 @@ public class AnalysisHelper {
         return result;
     }
 
+    public static double ExtractSolidCommunitiesFactor(Set<Set<Number>> commA, Set<Set<Number>> commB) {
+        double result = 0;
+        Set<Set<Number>> bigger = commA.size() >= commB.size() ? commA : commB;
+        Set<Set<Number>> smaller = commA.size() < commB.size() ? commA : commB;
+
+        for(Set<Number> setA : bigger) {
+            Set<Number> max = new HashSet<Number>();
+            for(Set<Number> setB : smaller) {
+                Set<Number> temp = new HashSet<Number>(setA);
+                temp.retainAll(setB);
+                if (temp.size() > max.size())
+                    max = temp;
+            }
+            result += max.size() / setA.size();
+        }
+        return result / bigger.size();
+    }
+
     public static Map<Number, CommunityRole> AssignRoles(Set<Set<Number>> clusters) {
         return null;
     }
