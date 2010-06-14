@@ -395,8 +395,9 @@ public class AdditionalFunc {
 
 
             for (Iterator iter = usids.iterator(); iter.hasNext();) {
-                Object element = (Object) iter.next();
 
+                Object element = (Object) iter.next();
+                //System.out.println(element);
                 us.add((User)session.get(User.class, (Integer)element));
 
             }
@@ -761,5 +762,8 @@ private static void createTableForObject(Object obj,String additional){
     return res;}
          return null;
   }
+
+
+  
 
 }

@@ -131,8 +131,19 @@ public class VisualAnalyzer  extends JApplet {
 
          
 
-        List<Integer> users=grapher.getMostConnUsers(500);
-        Graph<Number,Number> graph = grapher.CreateUsersGraph(500, "Friends",users);
+        //List<Integer> users=grapher.getMostConnUsers(500);
+       // Graph<Number,Number> graph = grapher.CreateUsersGraph(500, "Friends",users);
+
+
+        Calendar from=Calendar.getInstance();
+        from.set(2010,01,03);
+        EvParams params=new EvParams(from,10);
+
+        List<Integer> users=grapher.getUsersByEvents(params);
+
+        Graph<Number,Number> graph = grapher.CreateUsersGraph(10, "Friends",users);
+
+
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm

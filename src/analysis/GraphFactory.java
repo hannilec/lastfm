@@ -32,6 +32,7 @@ import java.io.File;
 import java.sql.Date;
 import java.util.Calendar;
 //import java.util.Collection;
+import java.util.HashSet;
 import org.apache.commons.io.FileUtils;
 /**
  *
@@ -85,11 +86,16 @@ public class GraphFactory {
                 usersid = User.getUserIds();
 
             max = (usersid.size() > max) ? max : usersid.size();
+           // System.out.println("max"+max);
             for(int i = 0; i < max; i++) {
                 vertices.put(usersid.get(i), vertexFactory.create());
+                //System.out.println("user "+usersid.get(i));
                 graph.addVertex(vertices.get(usersid.get(i)));
             }
-            return CreateFriendsGraph(vertices,graph);
+         //    if(users!=null)
+           //      return CreateFriendsGraph(vertices,graph,users);
+            // else
+                return CreateFriendsGraph(vertices,graph);
         }else if(type.equals("Loved")){
             if(users!=null){
                 usersid=users;
@@ -236,7 +242,9 @@ public class GraphFactory {
 
         List<Pair> friends=User.getFriendsTab();
 
-        System.out.println("friendstab"+friends.size());
+       // System.out.println("friendstab"+friends.size());
+        //System.out.println("vertices"+vertices.size());
+
          for(Number u: vertices.keySet()) {
             for(Integer f:getFriends(u,friends)) {
                 if (vertices.containsKey(f)) {
@@ -248,6 +256,8 @@ public class GraphFactory {
         }
         return graph;
     }
+
+
 
 
     public Graph<Number, Number> CreateEventsGraph(List<Integer> users){
@@ -478,6 +488,7 @@ public class GraphFactory {
             if (printUsers) {
                 res += "Content: \n";
                 for(Number n : s) {
+                    //System.out.println("user"+n);
                     res += " " + users.get(n.intValue()).getName() + "\n";
                     res += "  - Friends: " + graph.getNeighborCount(n) + "\n";
                     res += "  - PR: " + pageRanker.getVertexScore(n) + "\n";
@@ -567,12 +578,13 @@ public class GraphFactory {
         for(User u:us){
             res.put(i++, u);
         }
+        //System.out.println("ressize"+res.size());
         return res;
     }
 
 
      private List<Integer> getEvents(Calendar from, int max) {
-        System.out.println("getting");
+        //System.out.println("getting");
         String dep= "(startDate > date(\'"+new Date(from.getTimeInMillis())+"\')) FETCH FIRST "+max+" ROWS ONLY";
         //String dep= "(startDate > "+from.getTime()+" FETCH FIRST "+max+" ROWS ONLY";
 
@@ -586,6 +598,39 @@ public class GraphFactory {
         List<Integer> ls=AdditionalFunc.getIds("Event", "startDate between  date(\'"+new Date(from.getTimeInMillis())+ "\') and  date(\'"+new Date(to.getTimeInMillis())+"\')");
         return ls;
         //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public List<Integer> getUsersByEvents(EvParams params){
+
+        List<Integer> eventIds;
+
+        if(params.getTo()!=null){
+            eventIds=getEvents(params.getFrom(),params.getTo());
+        }else{
+            //System.out.println("with max");
+            eventIds=getEvents(params.getFrom(),params.getMax());
+        }
+
+        
+       // System.out.println(" got events ");
+
+
+        List<Pair> eventAtt=AdditionalFunc.getPairs("User_Event","user_id","event_id");
+
+        //System.out.println(" got table ");
+        Set<Integer> usSet=new HashSet();
+        List<Integer> users=new ArrayList();
+        for(Integer event:eventIds){
+
+            usSet.addAll(getAttendees(event,eventAtt));
+          // users.addAll(getAttendees(event,eventAtt));
+           //System.out.println("uslen"+users.size());
+        }
+
+        users.addAll(usSet);
+        //System.out.println(" got users ");
+        return users;
+
     }
 
     private List<Integer> getUsersEvents(Integer user,List<Pair> usrEv){
