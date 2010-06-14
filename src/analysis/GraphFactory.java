@@ -31,7 +31,7 @@ import hiberex.AdditionalFunc;
 import java.io.File;
 import java.sql.Date;
 import java.util.Calendar;
-import java.util.Collection;
+//import java.util.Collection;
 import org.apache.commons.io.FileUtils;
 /**
  *
@@ -39,15 +39,32 @@ import org.apache.commons.io.FileUtils;
  */
 public class GraphFactory {
 
+    /*
+     *
+     *  - budowanie każdego rodzaju grafu dla N tych samych użytkowników.*
+        - wybór N losowych użytkowników lub wybór N użytkowników którzy byli na koncertach.
+     *
+     *
+     * 
+     *
+     */
+
+
+
+
+
+
+
+
     public Graph<Number, Number> CreateUsersGraph(String type) {
-        return CreateUsersGraph(10000000,type);
+        return CreateUsersGraph(10000000,type,null);
     }
 
     protected Graph<Number,Number> graph;
     protected List<Integer> usersid;
     protected Map<Number, Number> vertices;
     
-    public Graph<Number, Number> CreateUsersGraph(int max,String type) {
+    public Graph<Number, Number> CreateUsersGraph(int max,String type,List<Integer> users) {
 
         Factory<Number> vertexFactory = new Factory<Number>() {
             int n = 0;
@@ -56,36 +73,33 @@ public class GraphFactory {
        
 
         graph = new SparseMultigraph<Number, Number>();
-
-        
-
-
-        /*users = User.getUsers();
-        max = (users.size() > max) ? max : users.size();
-
-        for(int i = 0; i < max; i++) {
-            vertices.put(users.get(i), vertexFactory.create());
-            graph.addVertex(vertices.get(users.get(i)));
-
-        }*/
-
         vertices = new HashMap<Number, Number>();
 
         if(type.equals("Friends")){
-           // = new HashMap<Number, Number>();
-            usersid = User.getUserIds();
-            max = (usersid.size() > max) ? max : usersid.size();
+            if(users!=null){
 
+                usersid=users;
+                max=usersid.size();
+            }
+            else
+                usersid = User.getUserIds();
+
+            max = (usersid.size() > max) ? max : usersid.size();
             for(int i = 0; i < max; i++) {
                 vertices.put(usersid.get(i), vertexFactory.create());
                 graph.addVertex(vertices.get(usersid.get(i)));
-
             }
-
-
             return CreateFriendsGraph(vertices,graph);
         }else if(type.equals("Loved")){
-            //Map<Number, Number> vertices = new HashMap<Number, Number>();
+            if(users!=null){
+                usersid=users;
+                max = usersid.size();
+                for(int i = 0; i < max; i++) {
+                    vertices.put(usersid.get(i), vertexFactory.create());
+                    graph.addVertex(vertices.get(usersid.get(i)));
+                }
+                return CreateLovedGraph(vertices,graph,users);
+            }
             return CreateLovedGraph(vertices,graph,max);
         }
 
@@ -94,6 +108,42 @@ public class GraphFactory {
     }
 
 
+     private Graph<Number, Number> CreateLovedGraph(Map<Number, Number> vertices,Graph<Number,Number> graph,List<Integer> users){
+
+        Factory<Number> edgeFactory = new Factory<Number>()  {
+            int n = 0;
+            public Number create() { return n++; }
+        };
+
+
+        List<Pair> ltr=AdditionalFunc.getPairs("User_LovedTrack","track_id","user_id");//Track.getLoved();//track,user
+
+        for(int user:users){
+            List<Integer> tracks=this.getLovedTracks(user, ltr);
+            for(int track:tracks){
+                List<Integer> fans=this.getFans(track, ltr);
+
+                for(Integer fan:fans){
+                    if(user!=fan){
+
+                      
+                       if(vertices.containsKey(fan) && !graph.isNeighbor(vertices.get(fan), vertices.get(user))){
+                           graph.addEdge(edgeFactory.create(),
+                                    vertices.get(user),
+                                    vertices.get(fan), EdgeType.UNDIRECTED);
+                       }
+                    }
+
+
+                }
+            }
+        }
+
+
+
+
+         return graph;
+     }
 
     private Graph<Number, Number> CreateLovedGraph(Map<Number, Number> vertices,Graph<Number,Number> graph,int max){
 
@@ -122,37 +172,18 @@ public class GraphFactory {
         List set=new ArrayList();
         List<Integer> trs=Track.getTrackIds();
         System.out.println("got ids");
-        List<Pair> ltr=Track.getLoved();
+        List<Pair> ltr=AdditionalFunc.getPairs("User_LovedTrack","track_id","user_id");//Track.getLoved();
         for(int trid:trs){
             int size=getSize(trid,ltr);
             set.add(new Pair(trid,size));
         }
-        //System.out.println("SIZE:"+trs.size());
-        
-       /* for(Pair a:ltr){
-            //int size=getSize(ltr,a);
-            System.out.println("track "+a.trid+" user "+a.nr);
-        }*/
 
-
-        /*for(int tr:trs){
-            int size=Track.getFansSize(tr);
-            if(size>1){
-                //System.out.println("adding: "+tr.getName()+" "+size);
-                set.add(new Pair(tr,size));
-            }
-            //if(set.size()>2443) break;
-        }*/
         System.out.println("set builded");
-       //set.sort(set,new MC());
+
        Collections.sort(set, new MC());
-       //Iterator it=set.iterator();
-       /*while(it.hasNext()){
-           Pair c=(Pair)it.next();
-           System.out.println(c.tr.getName()+"  "+c.nr);
-       }*/
+
        int usc=0;
-       //users=User.getUsers();
+
        for(int i=set.size()-1;i>0;i--){
            int act=((Pair)set.get(i)).trid;
            List<Integer> fans=getFans(act,ltr);
@@ -218,6 +249,55 @@ public class GraphFactory {
         return graph;
     }
 
+
+    public Graph<Number, Number> CreateEventsGraph(List<Integer> users){
+
+
+        usersid=users;
+
+        Factory<Number> vertexFactory = new Factory<Number>() {
+            int n = 0;
+            public Number create() { return n++; }
+        };
+
+        Factory<Number> edgeFactory = new Factory<Number>()  {
+            int n = 0;
+            public Number create() { return n++; }
+        };
+
+        graph = new SparseMultigraph<Number, Number>();
+        vertices = new HashMap<Number, Number>();
+
+        //max = usersid.size();
+                for(int i = 0; i < usersid.size(); i++) {
+                    vertices.put(usersid.get(i), vertexFactory.create());
+                    graph.addVertex(vertices.get(usersid.get(i)));
+                }
+
+        List<Pair> eventAtt=AdditionalFunc.getPairs("User_Event","user_id","event_id");
+
+        for(Integer user:users){
+            List<Integer> events=this.getUsersEvents(user, eventAtt);
+            for(Integer event:events){
+                List<Integer> atts=this.getAttendees(event, eventAtt);
+
+                for(Integer att:atts){
+                    if(user!=att){
+
+
+                       if(vertices.containsKey(att) && !graph.isNeighbor(vertices.get(att), vertices.get(user))){
+                           graph.addEdge(edgeFactory.create(),
+                                    vertices.get(user),
+                                    vertices.get(att), EdgeType.UNDIRECTED);
+                       }
+                    }
+                }
+            }
+        }
+
+
+        return graph;
+    }
 
      public Graph<Number, Number> CreateEventsGraph(EvParams params){
 
@@ -300,6 +380,33 @@ public class GraphFactory {
 
 
 
+  /*   public Map<String, Graph<Number,Number>> CreateAllGraphs(int max){
+
+         //List<Integer> users=getUsersForGraph(max);
+         Map<String, Graph<Number,Number>> res=new HashMap<String, Graph<Number,Number>>();
+         List<Integer> users=this.getMostConnUsers(max);
+          //graph = new SparseMultigraph<Number, Number>();
+          //vertices = new HashMap<Number, Number>();
+          res.put("Friends", CreateUsersGraph(0,"Friends",users));
+          res.put("Loved", CreateUsersGraph(0,"Loved",users));
+          res.put("Events", CreateEventsGraph(users));
+
+
+         return res;
+     }
+
+  */
+
+
+
+
+
+    public List<Integer> getMostConnUsers(int max){
+
+        
+
+        return AdditionalFunc.getMostConnUsr(max);
+    }
 
 
 
@@ -426,6 +533,17 @@ public class GraphFactory {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
+
+
+    private List<Integer> getLovedTracks(int user,List<Pair> lst){
+        List<Integer> res=new ArrayList();
+
+        for(Pair a:lst){
+            if(user==a.nr) res.add(a.trid);
+        }
+        return res;
+    }
+
     private List<Integer> getFriends(Number u, List<Pair> friends) {
         //System.out.println("looking for: "+u);
         //System.out.println(friends.size());
@@ -470,6 +588,14 @@ public class GraphFactory {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    private List<Integer> getUsersEvents(Integer user,List<Pair> usrEv){
+        List<Integer> res=new ArrayList<Integer>();
+        for(Pair p:usrEv){
+            if(p.trid==user) res.add(p.nr);
+        }
+
+        return res;
+    }
 
     private List<Integer> getAttendees(Integer ev,List<Pair> eventAtt) {
 

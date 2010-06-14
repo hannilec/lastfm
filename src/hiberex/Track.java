@@ -161,9 +161,9 @@ public class Track {
     }
 
 
-    public static List<Pair> getLoved(){
+    /*public static List<Pair> getLoved(){
         return AdditionalFunc.getPairs("User_LovedTrack","track_id","user_id");
-    }
+    }*/
     /**
      * @return the name
      */

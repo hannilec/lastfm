@@ -131,8 +131,9 @@ public class VisualAnalyzer  extends JApplet {
 
          
 
+        List<Integer> users=grapher.getMostConnUsers(100);
 
-        Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Loved");
+        Graph<Number,Number> graph = grapher.CreateUsersGraph(100, "Friends",users);
 
 		//Create a simple layout frame
         //specify the Fruchterman-Rheingold layout algorithm

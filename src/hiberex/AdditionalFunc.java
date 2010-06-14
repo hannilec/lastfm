@@ -706,4 +706,60 @@ private static void createTableForObject(Object obj,String additional){
         }
   }
 
+
+  public static List<Integer> getMostConnUsr(int max){
+     if(!start){
+        start=true;
+
+        Transaction tx = null;
+
+        //List<Integer> res=null;
+
+        String query="select user_id,count(distinct u.cnt) as sum from (select user_id,event_id as cnt from User_Event " +
+                "union all " +
+                "select user_id,user2_id as cnt from User_User " +
+                "union all " +
+                "select user_id,track_id as cnt from User_LovedTrack) as u group by user_id order by sum desc " +
+                "fetch first "+max+" rows only";
+
+        System.out.println("Q:"+query);
+        List<Object> resp;//=new ArrayList();
+        List<Integer> res=new ArrayList();
+        Session session = SessionFactoryUtil.getInstance().getCurrentSession();
+        try {
+          tx = session.beginTransaction();
+          //System.out.println("Q:"+query);
+          resp = session.createSQLQuery(query).list();
+
+          for(Object a: resp){
+              Object[] obt=(Object[])a;
+              res.add((Integer)obt[0]);
+             // System.out.println(obt[0]+" "+obt[1]);
+          }
+
+
+
+          //System.out.print(usr.getName());
+          tx.commit();
+        } catch (RuntimeException e) {
+          if (tx != null && tx.isActive()) {
+            try {
+    // Second try catch as the rollback could fail as well
+              tx.rollback();
+            } catch (HibernateException e1) {
+              logger.debug("Error rolling back transaction");
+            }
+    // throw again the first exception
+            throw e;
+          }
+
+
+        }
+
+
+        start=false;
+    return res;}
+         return null;
+  }
+
 }

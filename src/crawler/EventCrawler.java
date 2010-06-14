@@ -31,7 +31,7 @@ public class EventCrawler {
        // clear(hiberex.Event.getAllEvents());
         //new hiberex.Event("testEvent",new Date(10,10,10));
         evInDB=hiberex.Event.getAllEvents();
-        users=hiberex.User.getUsers(100);//hiberex.User.getUsers(); FIXME - wszystkich pobierac
+        users=hiberex.User.getUsers(); //FIXME - wszystkich pobierac
         System.out.println(evInDB.size());
         System.out.println("===================================");
         for(hiberex.Event e:evInDB){
@@ -87,8 +87,8 @@ public class EventCrawler {
 
                 Collection<Event> pageResults = pagevents.getPageResults();
                 for(Event e:pageResults){
-                    System.out.println(e.getTitle());
-                    //addEvent(e);//add to db if not there
+                   // System.out.println(e.getTitle());
+                    addEvent(e);//add to db if not there
                 }
 
 
@@ -97,8 +97,8 @@ public class EventCrawler {
                 pagevents=User.getPastEvents(u.getName(), i, 50, Crawler.KEY);
                 pageResults = pagevents.getPageResults();
                 for(Event e:pageResults){
-                    System.out.println(e.getTitle());
-                   // addEvent(e);//add to db if not there
+                   // System.out.println(e.getTitle());
+                    addEvent(e);//add to db if not there
                 }
 
             }

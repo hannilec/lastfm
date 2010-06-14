@@ -190,6 +190,17 @@ public class TestExample {
       }*/
 
 
+      List<Integer> res=AdditionalFunc.getMostConnUsr(10);
+
+      System.out.println(res.size());
+      for(int a:res){
+      System.out.println(a);
+      }
+      /*System.out.println(AdditionalFunc.getPairs("User_Event", "user_id", "event_id").size());
+      System.out.println(AdditionalFunc.getPairs("User_User", "user_id", "user2_id").size());
+      System.out.println(AdditionalFunc.getPairs("User_LovedTrack", "user_id", "track_id").size());*/
+     // for(int a:res)
+
   }
       private static void printUsers() {
           System.out.println("== Users ==");

@@ -205,30 +205,22 @@
     <id column="id" name="id">
       <generator class="increment"/>
     </id>
+
     <property column="name" name="name"/>
     <property column="listeners" name="listeners"/>
     <property column="playcount" name="playcount"/>
-     <!--<list name="artist" table="Artist_Track" cascade="none">
-            <key column="track_id"/>
-            <index column="id" type="int"/>
-            <many-to-many column="artist_id" class="hiberex.Artist"/>
-    </list>-->
+
     <many-to-one
         name="artist"
         class="hiberex.Artist" column="artist_id" cascade="all"/>
 
-    <!-- <list name="album" table="Album_Track" cascade="none">
-            <key column="track_id"/>
-            <index column="id" type="int"/>
-            <many-to-many column="album_id" class="hiberex.Album"/>
-    </list>-->
      <list name="tags" table="Track_Tag" cascade="none">
             <key column="track_id"/>
             <index column="id" type="int"/>
             <many-to-many column="tag_id" class="hiberex.Tag"/>
     </list>
  
-    
+   
     <property column="published" name="published"/>
   </class>
     <!--

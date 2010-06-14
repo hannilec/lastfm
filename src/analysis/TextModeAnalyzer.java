@@ -34,7 +34,7 @@ public class TextModeAnalyzer {
         GraphFactory graphFactory= new GraphFactory();
 
         System.out.println("creating graph " + Now());
-        Graph<Number, Number> graph = graphFactory.CreateUsersGraph(count, mode);
+        Graph<Number, Number> graph = graphFactory.CreateUsersGraph(count, mode,null);
         System.out.println("graph created " + Now());
 
         EdgeBetweennessClusterer<Number, Number> clusterer = new EdgeBetweennessClusterer<Number, Number>(edgesToRemove);
