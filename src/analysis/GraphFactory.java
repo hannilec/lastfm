@@ -86,7 +86,7 @@ public class GraphFactory {
                 usersid = User.getUserIds();
 
             max = (usersid.size() > max) ? max : usersid.size();
-           // System.out.println("max"+max);
+            System.out.println("max"+max);
             for(int i = 0; i < max; i++) {
                 vertices.put(usersid.get(i), vertexFactory.create());
                 //System.out.println("user "+usersid.get(i));
@@ -628,7 +628,7 @@ public class GraphFactory {
         }
 
         users.addAll(usSet);
-        //System.out.println(" got users ");
+        System.out.println(" got users ");
         return users;
 
     }

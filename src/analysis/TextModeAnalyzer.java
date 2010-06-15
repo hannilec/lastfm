@@ -24,17 +24,27 @@ public class TextModeAnalyzer {
         return sdf.format(new Date());
     }
     public static void main(String[] args) {
-        Set<Set<Number>> a = clusterAndReport("Friends", 100, 100);
-        Set<Set<Number>> b = clusterAndReport("Loved", 100, 100);
+
+        Calendar from=Calendar.getInstance();
+        from.set(2009,01,03);
+        EvParams params=new EvParams(from,10);
+
+        Set<Set<Number>> a = clusterAndReport("2009_Events", 10, 10,params);
+
+        Calendar to=Calendar.getInstance();
+        to.set(2010, 01, 03);
+        EvParams params2=new EvParams(from,10);
+        
+        Set<Set<Number>> b = clusterAndReport("2010_Events", 10, 10,params2);
 
         System.out.println(AnalysisHelper.ExtractSolidCommunitiesFactor(a, b));
     }
 
-    public static Set<Set<Number>> clusterAndReport(String mode, int count, int edgesToRemove) {
+    public static Set<Set<Number>> clusterAndReport(String mode, int count, int edgesToRemove,EvParams params) {
         GraphFactory graphFactory= new GraphFactory();
 
         System.out.println("creating graph " + Now());
-        Graph<Number, Number> graph = graphFactory.CreateUsersGraph(count, mode,null);
+        Graph<Number, Number> graph = graphFactory.CreateEventsGraph(params);
         System.out.println("graph created " + Now());
 
         EdgeBetweennessClusterer<Number, Number> clusterer = new EdgeBetweennessClusterer<Number, Number>(edgesToRemove);
