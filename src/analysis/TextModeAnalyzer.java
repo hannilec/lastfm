@@ -51,7 +51,7 @@ public class TextModeAnalyzer {
         Set<Set<Number>> clusters = clusterer.transform(graph);
         System.out.println("graph clustered " + Now());
 
-        graphFactory.SaveReport(count + mode + edgesToRemove + ".txt", clusters, false);
+        graphFactory.SaveReport(count + mode + edgesToRemove + ".txt", clusters, false, edgesToRemove);
         System.out.println("report saved " + Now());
         return clusters;
     }

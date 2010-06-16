@@ -135,14 +135,15 @@ public class VisualAnalyzer  extends JApplet {
        // Graph<Number,Number> graph = grapher.CreateUsersGraph(500, "Friends",users);
 
 
-        Calendar from=Calendar.getInstance();
-        from.set(2009,01,03);
-        EvParams params=new EvParams(from,50);
+        //Calendar from=Calendar.getInstance();
+        //from.set(2009,01,03);
+        //EvParams params=new EvParams(from,50);
 
-        List<Integer> users=grapher.getUsersByEvents(params);
+        //List<Integer> users=grapher.getUsersByEvents(params);
+        //List<Integer> users=grapher.CreateUsersGraph(500, "Friends", null);
 
         //grapher.CreateEventsGraph(users);
-        Graph<Number,Number> graph = grapher.CreateUsersGraph(500, "Friends",users);
+        Graph<Number,Number> graph = grapher.CreateUsersGraph(200, "Friends",null);
 
 
 
@@ -288,7 +289,7 @@ public class VisualAnalyzer  extends JApplet {
 		Set<Set<Number>> clusterSet = clusterer.transform(g);
 		List<Number> edges = clusterer.getEdgesRemoved();
 
-                grapher.SaveReport(numEdgesToRemove + "visual.txt",clusterSet, true);
+                grapher.SaveReport(numEdgesToRemove + "visual.txt",clusterSet, true, numEdgesToRemove);
 		int i = 0;
 		//Set the colors of each node so that each cluster's vertices have the same color
 		for (Iterator<Set<Number>> cIt = clusterSet.iterator(); cIt.hasNext();) {

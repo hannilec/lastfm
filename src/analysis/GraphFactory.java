@@ -440,21 +440,21 @@ public class GraphFactory {
         return numbers;
     }
     
-    public void SaveReport(String filename, Set<Set<Number>> clusters, boolean printUsers) {
+    public void SaveReport(String filename, Set<Set<Number>> clusters, boolean printUsers, int removed) {
         try {
-            FileUtils.writeStringToFile(new File(filename), Report(clusters, printUsers));
+            FileUtils.writeStringToFile(new File(filename), Report(clusters, printUsers, removed));
         } catch (IOException ex) {
             Logger.getLogger(GraphFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public String Report(Set<Set<Number>> clusters, boolean printUsers) {
+    public String Report(Set<Set<Number>> clusters, boolean printUsers, int removed) {
         BetweennessCentrality centralityRanker = new BetweennessCentrality(graph);
         PageRank pageRanker = new PageRank(graph, 0.15);
         pageRanker.acceptDisconnectedGraph(true);
         pageRanker.evaluate();
 
-        String res = "";
+        String res = "EdgesRemoved: " + removed;
         int i = 0;
 
         final Map<Number,User> users=getUsers(vertices);
