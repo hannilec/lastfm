@@ -342,7 +342,10 @@ public class AdditionalFunc {
         List<Integer> res=null;
         String query="select id from "+name;    
         //if(adddep!=null) query+=" "+adddep;//joins and so
-        if(dep!=null) query+=" where " + dep;
+        if(dep!=null){
+            if(!dep.contains("fetch")) query+=" where " + dep;
+            else query+=" "+dep;
+        }
         System.out.println("Q:"+query);
         //List<Object> res=new ArrayList();
         Session session = SessionFactoryUtil.getInstance().getCurrentSession();

@@ -63,6 +63,7 @@ import edu.uci.ics.jung.visualization.GraphZoomScrollPane;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse;
 import edu.uci.ics.jung.visualization.decorators.ToStringLabeller;
+import hiberex.AdditionalFunc;
 import java.util.Calendar;
 
 
@@ -143,7 +144,8 @@ public class VisualAnalyzer  extends JApplet {
         //List<Integer> users=grapher.CreateUsersGraph(500, "Friends", null);
 
         //grapher.CreateEventsGraph(users);
-        Graph<Number,Number> graph = grapher.CreateUsersGraph(200, "Friends",null);
+        List<Integer> users=AdditionalFunc.getIds("User", "fetch first "+200+" rows only");
+        Graph<Number,Number> graph = grapher.CreateEventsGraph(users);
 
 
 

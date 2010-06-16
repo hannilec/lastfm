@@ -292,10 +292,11 @@ public class GraphFactory {
                 List<Integer> atts=this.getAttendees(event, eventAtt);
 
                 for(Integer att:atts){
-                    if(user!=att){
+                    if(!user.equals(att)){
 
 
                        if(vertices.containsKey(att) && !graph.isNeighbor(vertices.get(att), vertices.get(user))){
+                          // System.out.println(" edge: "+user+" "+vertices.get(user)+" "+att+" "+vertices.get(att));
                            graph.addEdge(edgeFactory.create(),
                                     vertices.get(user),
                                     vertices.get(att), EdgeType.UNDIRECTED);
