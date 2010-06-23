@@ -7,11 +7,12 @@ package analysis;
 
 //package src;
 
+import edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer;
 import edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality;
 import edu.uci.ics.jung.algorithms.scoring.PageRank;
 import edu.uci.ics.jung.algorithms.scoring.VertexScorer;
 import edu.uci.ics.jung.graph.Graph;
-import edu.uci.ics.jung.graph.SparseMultigraph;
+import edu.uci.ics.jung.graph.UndirectedSparseGraph;
 import edu.uci.ics.jung.graph.util.EdgeType;
 import hiberex.Pair;
 import hiberex.Track;
@@ -62,9 +63,38 @@ public class GraphFactory {
     }
 
     protected Graph<Number,Number> graph;
+    protected Graph<Number,Number> clusteredGraph;
     protected List<Integer> usersid;
     protected Map<Number, Number> vertices;
-    
+    protected List<Number> edgesRemoved;
+
+    public Set<Set<Number>> cluster(int numEdges) {
+        EdgeBetweennessClusterer<Number, Number> clusterer = new EdgeBetweennessClusterer<Number, Number>(numEdges);
+        Set<Set<Number>> clusters = clusterer.transform(graph);
+        edgesRemoved = clusterer.getEdgesRemoved();
+        clusteredGraph = copyGraph(graph, edgesRemoved);
+        
+        return clusters;
+    }
+
+    List<Number> getEdgesRemoved() {
+        return edgesRemoved;
+    }
+
+    Graph<Number, Number> getClusteredGraph() {
+        return clusteredGraph;
+    }
+
+    public Graph<Number, Number> copyGraph(Graph<Number, Number> graph, List<Number> edgesToRemove) {
+        Graph<Number, Number> result = new UndirectedSparseGraph<Number, Number>();
+        for(Number n : graph.getVertices())
+            result.addVertex(n);
+        for(Number e: graph.getEdges())
+            result.addEdge(e, graph.getEndpoints(e).getFirst(), graph.getEndpoints(e).getSecond(), EdgeType.UNDIRECTED);
+        for(Number e: edgesToRemove)
+            result.removeEdge(e);
+        return result;
+    }
     public Graph<Number, Number> CreateUsersGraph(int max,String type,List<Integer> users) {
 
         Factory<Number> vertexFactory = new Factory<Number>() {
@@ -73,7 +103,7 @@ public class GraphFactory {
         };
        
 
-        graph = new SparseMultigraph<Number, Number>();
+        graph = new UndirectedSparseGraph<Number, Number>();
         vertices = new HashMap<Number, Number>();
 
         if(type.equals("Friends")){
@@ -275,7 +305,7 @@ public class GraphFactory {
             public Number create() { return n++; }
         };
 
-        graph = new SparseMultigraph<Number, Number>();
+        graph = new UndirectedSparseGraph<Number, Number>();
         vertices = new HashMap<Number, Number>();
 
         //max = usersid.size();
@@ -323,7 +353,7 @@ public class GraphFactory {
             public Number create() { return n++; }
         };
 
-        graph = new SparseMultigraph<Number, Number>();
+        graph = new UndirectedSparseGraph<Number, Number>();
         vertices = new HashMap<Number, Number>();
 
 
@@ -396,7 +426,7 @@ public class GraphFactory {
          //List<Integer> users=getUsersForGraph(max);
          Map<String, Graph<Number,Number>> res=new HashMap<String, Graph<Number,Number>>();
          List<Integer> users=this.getMostConnUsers(max);
-          //graph = new SparseMultigraph<Number, Number>();
+          //graph = new UndirectedSparseGraph<Number, Number>();
           //vertices = new HashMap<Number, Number>();
           res.put("Friends", CreateUsersGraph(0,"Friends",users));
           res.put("Loved", CreateUsersGraph(0,"Loved",users));
@@ -450,12 +480,14 @@ public class GraphFactory {
     }
 
     public String Report(Set<Set<Number>> clusters, boolean printUsers, int removed) {
-        BetweennessCentrality centralityRanker = new BetweennessCentrality(graph);
-        PageRank pageRanker = new PageRank(graph, 0.15);
+        BetweennessCentrality centralityRanker = new BetweennessCentrality(clusteredGraph);
+
+        PageRank pageRanker = new PageRank(clusteredGraph, 0.15);
         pageRanker.acceptDisconnectedGraph(true);
         pageRanker.evaluate();
 
-        String res = "EdgesRemoved: " + removed;
+        String res = "Edges: " + graph.getEdgeCount() + "\n";
+        res += "EdgesRemoved: " + edgesRemoved.size() + "\n";
         int i = 0;
 
         final Map<Number,User> users=getUsers(vertices);
@@ -475,7 +507,7 @@ public class GraphFactory {
 
             VertexScorer<Number, Double> friendScorer = new VertexScorer<Number, Double>() {
                 public Double getVertexScore(Number v) {
-                    return (double)graph.getNeighborCount(v);
+                    return (double)clusteredGraph.getNeighborCount(v);
                 }
             };
 
@@ -491,7 +523,7 @@ public class GraphFactory {
                 for(Number n : s) {
                     //System.out.println("user"+n);
                     res += " " + users.get(n.intValue()).getName() + "\n";
-                    res += "  - Friends: " + graph.getNeighborCount(n) + "\n";
+                    res += "  - Friends: " + clusteredGraph.getNeighborCount(n) + "\n";
                     res += "  - PR: " + pageRanker.getVertexScore(n) + "\n";
                     res += "  - BC: " + centralityRanker.getVertexScore(n) + "\n";
                 }
@@ -499,7 +531,7 @@ public class GraphFactory {
             i++;
         }
         res = "Number of clusters: " + i + "\n" + res;
-        res = "Total Avg number of members: " + graph.getVertexCount() / i + "\n" + res;
+        res = "Total Avg number of members: " + clusteredGraph.getVertexCount() / i + "\n" + res;
         res = "Total Avg number of friends: " + totalFriendsAvg + "\n" + res;
         res = "Total StdDev friends: " + totalFriendsStdDev + "\n" + res;
         res = "Total Avg PR: " + totalPrAvg + "\n" + res;
@@ -514,7 +546,7 @@ public class GraphFactory {
 
             for(Number n : s) {
                 res += users.get(n.intValue()).getName() + "\t";
-                res += graph.getNeighborCount(n) + "\t";
+                res += clusteredGraph.getNeighborCount(n) + "\t";
                 res += pageRanker.getVertexScore(n) + "\t";
                 res += centralityRanker.getVertexScore(n) + "\t\n";
             }
@@ -654,4 +686,6 @@ public class GraphFactory {
         return res;
         //throw new UnsupportedOperationException("Not yet implemented");
     }
+
+
 }

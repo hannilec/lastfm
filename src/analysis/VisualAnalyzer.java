@@ -133,7 +133,7 @@ public class VisualAnalyzer  extends JApplet {
          
 
         //List<Integer> users=grapher.getMostConnUsers(500);
-       // Graph<Number,Number> graph = grapher.CreateUsersGraph(500, "Friends",users);
+        //Graph<Number,Number> graph = grapher.CreateUsersGraph(200, "Friends", null);
 
 
         //Calendar from=Calendar.getInstance();
@@ -141,10 +141,12 @@ public class VisualAnalyzer  extends JApplet {
         //EvParams params=new EvParams(from,50);
 
         //List<Integer> users=grapher.getUsersByEvents(params);
-        //List<Integer> users=grapher.CreateUsersGraph(500, "Friends", null);
+        //List<Integer> users=grapher.CreateUsersGraph(200, "Friends", null);
 
         //grapher.CreateEventsGraph(users);
         List<Integer> users=AdditionalFunc.getIds("User", "fetch first "+200+" rows only");
+
+        //Graph<Number,Number> graph = grapher.CreateUsersGraph(200, "Events", users);
         Graph<Number,Number> graph = grapher.CreateEventsGraph(users);
 
 
@@ -210,10 +212,12 @@ public class VisualAnalyzer  extends JApplet {
         edgeBetweennessSlider.setBackground(Color.WHITE);
 		edgeBetweennessSlider.setPreferredSize(new Dimension(210, 50));
 		edgeBetweennessSlider.setPaintTicks(true);
-		edgeBetweennessSlider.setMaximum(graph.getEdgeCount());
+		edgeBetweennessSlider.setMaximum(5);
 		edgeBetweennessSlider.setMinimum(0);
 		edgeBetweennessSlider.setValue(0);
-		edgeBetweennessSlider.setMajorTickSpacing(10);
+                edgeBetweennessSlider.setSnapToTicks(true);
+		edgeBetweennessSlider.setMajorTickSpacing(1);
+                edgeBetweennessSlider.setMinorTickSpacing(1);
 		edgeBetweennessSlider.setPaintLabels(true);
 		edgeBetweennessSlider.setPaintTicks(true);
 
@@ -286,10 +290,10 @@ public class VisualAnalyzer  extends JApplet {
 		Graph<Number,Number> g = layout.getGraph();
         layout.removeAll();
 
-		EdgeBetweennessClusterer<Number,Number> clusterer =
-			new EdgeBetweennessClusterer<Number,Number>(numEdgesToRemove);
-		Set<Set<Number>> clusterSet = clusterer.transform(g);
-		List<Number> edges = clusterer.getEdgesRemoved();
+
+		Set<Set<Number>> clusterSet = grapher.cluster(numEdgesToRemove * (g.getEdgeCount() / 5));
+		List<Number> edges = grapher.getEdgesRemoved();
+                
 
                 grapher.SaveReport(numEdgesToRemove + "visual.txt",clusterSet, true, numEdgesToRemove);
 		int i = 0;

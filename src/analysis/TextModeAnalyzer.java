@@ -58,8 +58,8 @@ public class TextModeAnalyzer {
         edges=edges/3;
         System.out.println("graph created " + Now());
 
-        EdgeBetweennessClusterer<Number, Number> clusterer = new EdgeBetweennessClusterer<Number, Number>(edges);
-        Set<Set<Number>> clusters = clusterer.transform(graph);
+       
+        Set<Set<Number>> clusters = graphFactory.cluster(edgesToRemove);
         System.out.println("graph clustered " + Now());
 
         graphFactory.SaveReport(count + mode + edgesToRemove + ".txt", clusters, false, edgesToRemove);
