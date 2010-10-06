@@ -1,0 +1,2432 @@
+Total StdDev BC: 2.1708489159815225
+Total Avg BC: 0.83
+Total StdDev PR: 0.004780480052652473
+Total Avg PR: 0.0050000000000000044
+Total StdDev friends: 13.31825738974501
+Total Avg number of friends: 10.47
+Total Avg number of members: 1
+Number of clusters: 142
+Edges: 1047
+EdgesRemoved: 627
+= Cluster: 0 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ mrocznaowca
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 1 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ adiii86
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 2 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ mefiusz
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 3 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ MacWildcat
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 4 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ cichaczem
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 5 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Klang_Harcun
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 6 =
+Count: 2
+Avg Friends: 1.0
+StdDev Friends: 0.0
+Avg PR: 0.011614401858304334
+StdDev PR: 0.0
+Avg BC: 0.0
+StdDev BC: 0.0
+Content: 
+ ozm696
+  - Friends: 1
+  - PR: 0.011614401858304334
+  - BC: 0.0
+ CrazyaboutX
+  - Friends: 1
+  - PR: 0.011614401858304334
+  - BC: 0.0
+= Cluster: 7 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Kiwiora
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 8 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Najsuroviji
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 9 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Kessell
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 10 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ bobi-the-mute
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 11 =
+Count: 32
+Avg Friends: 21.4375
+StdDev Friends: 4.858896064719016
+Avg PR: 0.011614401858304327
+StdDev PR: 0.0022663193453361045
+Avg BC: 4.843750000000001
+StdDev BC: 3.1467845075941936
+Content: 
+ CzarnySkittels
+  - Friends: 26
+  - PR: 0.013742830506830036
+  - BC: 7.806594453242723
+ nataszella
+  - Friends: 26
+  - PR: 0.013835373697664828
+  - BC: 10.202581362565882
+ bartekre
+  - Friends: 19
+  - PR: 0.010513873571332363
+  - BC: 2.8785832272825815
+ mrSschizo
+  - Friends: 21
+  - PR: 0.011376193976205151
+  - BC: 3.6204940340540688
+ Killia
+  - Friends: 26
+  - PR: 0.01371171170176053
+  - BC: 6.96673945529949
+ semioni
+  - Friends: 27
+  - PR: 0.014193702802306645
+  - BC: 8.242878157274443
+ hiss_
+  - Friends: 26
+  - PR: 0.01369380233003499
+  - BC: 6.441078493454318
+ iskierka
+  - Friends: 20
+  - PR: 0.010933206465756464
+  - BC: 3.5955653078095535
+ redrim
+  - Friends: 19
+  - PR: 0.010492579114570303
+  - BC: 3.264340643017114
+ kotasia
+  - Friends: 16
+  - PR: 0.009085141354542848
+  - BC: 1.9195881732646438
+ menicPL
+  - Friends: 22
+  - PR: 0.011921205870905451
+  - BC: 5.639975941035976
+ zuza_f
+  - Friends: 25
+  - PR: 0.013252761484377791
+  - BC: 6.218642535879041
+ belly_dancer
+  - Friends: 29
+  - PR: 0.015123436447902483
+  - BC: 9.633139210515035
+ Saranella
+  - Friends: 20
+  - PR: 0.010894182223636941
+  - BC: 2.6181363356285954
+ Scarlet_Fields
+  - Friends: 23
+  - PR: 0.012441170451256684
+  - BC: 7.537365642837442
+ byebasil
+  - Friends: 17
+  - PR: 0.009514714712493082
+  - BC: 1.1721008637568742
+ fusaccio
+  - Friends: 20
+  - PR: 0.010874728274391138
+  - BC: 2.3464011120122303
+ krasiwyj
+  - Friends: 17
+  - PR: 0.009477153939507174
+  - BC: 1.279403766168472
+ stefek99
+  - Friends: 28
+  - PR: 0.014657100613187882
+  - BC: 8.968409495785323
+ _Owca
+  - Friends: 22
+  - PR: 0.011828301627681628
+  - BC: 3.5324838416321116
+ malkavkitty
+  - Friends: 17
+  - PR: 0.009514714712493082
+  - BC: 1.1721008637568742
+ CTSprods
+  - Friends: 17
+  - PR: 0.009596652502441147
+  - BC: 3.5196917246839847
+ hewek
+  - Friends: 25
+  - PR: 0.013321635038915721
+  - BC: 7.4359887302763195
+ azotka_srebra
+  - Friends: 26
+  - PR: 0.0137884967169137
+  - BC: 9.332348334724161
+ wiwetu
+  - Friends: 18
+  - PR: 0.010016692376799865
+  - BC: 2.776217143709404
+ agamusic
+  - Friends: 17
+  - PR: 0.009580934493477584
+  - BC: 2.517619294414623
+ spitfiredhc6666
+  - Friends: 25
+  - PR: 0.013342769423809448
+  - BC: 7.664419041794866
+ Alec_Empire
+  - Friends: 8
+  - PR: 0.0054216167595277686
+  - BC: 0.13025210084033612
+ MissyxxLouve
+  - Friends: 18
+  - PR: 0.010001237156010522
+  - BC: 2.5061635116353114
+ Deprimek
+  - Friends: 20
+  - PR: 0.010874467676537535
+  - BC: 2.2231178593172136
+ noisebit
+  - Friends: 30
+  - PR: 0.015604417060250224
+  - BC: 10.790678321730617
+ JayRokxx
+  - Friends: 16
+  - PR: 0.009034054382217431
+  - BC: 1.0469010206003744
+= Cluster: 12 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kokosowakarcia
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 13 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ yapee
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 14 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ eyaah
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 15 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ tomaszslazok
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 16 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ jankaloryfer
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 17 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kubaor
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 18 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kobutz
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 19 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ CzestTer
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 20 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ vyvern
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 21 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ pantofel
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 22 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ LordGrey
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 23 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Crystal_Pea
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 24 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ MJeremy
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 25 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ dream-hunter
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 26 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Komcia
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 27 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ -OdyN-
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 28 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ brndtta
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 29 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ hire-i
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 30 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ DiziXagi
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 31 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Derudo
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 32 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kyote_ugly
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 33 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ juichan
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 34 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Schulzzz
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 35 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kiwiora
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 36 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ malinowcu
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 37 =
+Count: 8
+Avg Friends: 5.5
+StdDev Friends: 1.3093073414159542
+Avg PR: 0.011614401858304332
+StdDev PR: 0.0024429232392644273
+Avg BC: 0.7499999999999999
+StdDev BC: 1.0350983390135313
+Content: 
+ Okami_Imako
+  - Friends: 7
+  - PR: 0.014436761354704288
+  - BC: 1.9999999999999998
+ Goferek23
+  - Friends: 7
+  - PR: 0.014436761354704288
+  - BC: 1.9999999999999998
+ freawaru
+  - Friends: 4
+  - PR: 0.008890496762941584
+  - BC: 0.0
+ tuathe
+  - Friends: 4
+  - PR: 0.008890496762941584
+  - BC: 0.0
+ Dajmosek
+  - Friends: 5
+  - PR: 0.010607979092146209
+  - BC: 0.0
+ tommell
+  - Friends: 5
+  - PR: 0.010607979092146209
+  - BC: 0.0
+ RestlessSinner
+  - Friends: 7
+  - PR: 0.014436761354704288
+  - BC: 1.9999999999999998
+ teela_
+  - Friends: 5
+  - PR: 0.010607979092146209
+  - BC: 0.0
+= Cluster: 38 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ testarusty
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 39 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Duo139
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 40 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Nachielle
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 41 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ matisso
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 42 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ intensyfikacja
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 43 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ onirisme
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 44 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ szyszaq
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 45 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Mezzanine_Fiona
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 46 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ cevas
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 47 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Karolas_pl
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 48 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Therushka
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 49 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ majinek
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 50 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Agreest
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 51 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ RomanGda
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 52 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ darmozjad
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 53 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Tahti
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 54 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ niumaPL
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 55 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kaajkaaa
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 56 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ JENDRAS
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 57 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ draq
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 58 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ PettyGahanDM
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 59 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Avrora_XxX
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 60 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ _Sooltan_
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 61 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ anndmka
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 62 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Megsalot
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 63 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ klubstodola
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 64 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Joanaarieiro
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 65 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ ioionjam
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 66 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ vickyta
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 67 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ depecherid
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 68 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Izalec
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 69 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ phenomenigma
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 70 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ dekolt
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 71 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ LetoMacchiato
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 72 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ pinkfisz
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 73 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ AlannahWilder
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 74 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Sayu_x13
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 75 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ LovePeaceRingo
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 76 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ ohGre
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 77 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ AldemarVRotter
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 78 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Fisher_spooner
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 79 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Calliope88
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 80 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ koperek
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 81 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ System90
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 82 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ sybaritisme
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 83 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ daria_dm
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 84 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Elair
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 85 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ LilithV
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 86 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ SynthEtik
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 87 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ behindthewheel
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 88 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kriisredhead
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 89 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ PresidentX
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 90 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ -Plasticine-
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 91 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Frances88
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 92 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ mykkma
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 93 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ nowa_ja
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 94 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ GrieverHellion
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 95 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Kjuroman
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 96 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Murdererrrr
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 97 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ tehnub
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 98 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Lord_Krichian
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 99 =
+Count: 8
+Avg Friends: 5.75
+StdDev Friends: 1.2817398889233114
+Avg PR: 0.011614401858304334
+StdDev PR: 0.002299542614968159
+Avg BC: 0.625
+StdDev BC: 0.6220166894101491
+Content: 
+ Malvir
+  - Friends: 6
+  - PR: 0.01204373651405023
+  - BC: 0.5
+ avangardness
+  - Friends: 7
+  - PR: 0.013872088615786442
+  - BC: 1.3333333333333333
+ mistrz0
+  - Friends: 7
+  - PR: 0.01387208861578644
+  - BC: 1.3333333333333333
+ Marcin09
+  - Friends: 6
+  - PR: 0.01204373651405023
+  - BC: 0.5
+ ROKERSBAGERA
+  - Friends: 4
+  - PR: 0.008501759994939255
+  - BC: 0.0
+ anankeee
+  - Friends: 7
+  - PR: 0.01387208861578644
+  - BC: 1.3333333333333333
+ firanana
+  - Friends: 4
+  - PR: 0.008501759994939255
+  - BC: 0.0
+ Farmer666
+  - Friends: 5
+  - PR: 0.010207956001096372
+  - BC: 0.0
+= Cluster: 100 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ glebcia
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 101 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Dominikaxyz
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 102 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ H4C37
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 103 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ wandowska
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 104 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Blue_Dragonfly
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 105 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Anticeno
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 106 =
+Count: 4
+Avg Friends: 3.0
+StdDev Friends: 0.0
+Avg PR: 0.011614401858304332
+StdDev PR: 0.0
+Avg BC: 0.0
+StdDev BC: 0.0
+Content: 
+ magdziabanan
+  - Friends: 3
+  - PR: 0.011614401858304332
+  - BC: 0.0
+ TEcHNOpl
+  - Friends: 3
+  - PR: 0.011614401858304332
+  - BC: 0.0
+ Voolcanic
+  - Friends: 3
+  - PR: 0.011614401858304332
+  - BC: 0.0
+ lucaspl81
+  - Friends: 3
+  - PR: 0.011614401858304332
+  - BC: 0.0
+= Cluster: 107 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ warkoczyk
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 108 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ kr-lik
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 109 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ DerSneaker
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 110 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ BeautyFromPain_
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 111 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ UrJoyIsMyLow
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 112 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Curlyman28
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 113 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ szczurolap
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 114 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Irvva
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 115 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ dezetkrk
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 116 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ fallik
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 117 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ aganaui
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 118 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ martynkowa
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 119 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Biedrunka
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 120 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ horrid69
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 121 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ EoK22
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 122 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ ogniskowicz
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 123 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ ogt_tczew
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 124 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ deelce1986
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 125 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ ramenn
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 126 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ izaak0
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 127 =
+Count: 2
+Avg Friends: 1.0
+StdDev Friends: 0.0
+Avg PR: 0.011614401858304334
+StdDev PR: 0.0
+Avg BC: 0.0
+StdDev BC: 0.0
+Content: 
+ lostomatos
+  - Friends: 1
+  - PR: 0.011614401858304334
+  - BC: 0.0
+ vampiczna
+  - Friends: 1
+  - PR: 0.011614401858304334
+  - BC: 0.0
+= Cluster: 128 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ marmey
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 129 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Sthilmann
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 130 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ znorfska
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 131 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ abnegacja
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 132 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ love_hysteria6
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 133 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ lorgean
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 134 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ dorotella
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 135 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ jagna_xp
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 136 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ Acibuk1990
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 137 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ vevzduchuduch
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 138 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ dajryjka13
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 139 =
+Count: 1
+Avg Friends: 0.0
+StdDev Friends: NaN
+Avg PR: 0.001742160278745651
+StdDev PR: NaN
+Avg BC: 0.0
+StdDev BC: NaN
+Content: 
+ s_koktajlowa
+  - Friends: 0
+  - PR: 0.001742160278745651
+  - BC: 0.0
+= Cluster: 140 =
+Count: 3
+Avg Friends: 2.0
+StdDev Friends: 0.0
+Avg PR: 0.011614401858304334
+StdDev PR: 0.0
+Avg BC: 0.0
+StdDev BC: 0.0
+Content: 
+ x_wiThoutU_x
+  - Friends: 2
+  - PR: 0.011614401858304334
+  - BC: 0.0
+ DrEldred
+  - Friends: 2
+  - PR: 0.011614401858304334
+  - BC: 0.0
+ Pyramidek
+  - Friends: 2
+  - PR: 0.011614401858304334
+  - BC: 0.0
+= Cluster: 141 =
+Count: 7
+Avg Friends: 6.0
+StdDev Friends: 0.0
+Avg PR: 0.011614401858304327
+StdDev PR: 0.0
+Avg BC: 0.0
+StdDev BC: 0.0
+Content: 
+ krolik_ow_ska
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+ DR0N3
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+ malgorzatasz
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+ aryjskamaria
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+ AstridMe
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+ javicuervo
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+ kubakoner
+  - Friends: 6
+  - PR: 0.011614401858304327
+  - BC: 0.0
+
+
+Cluster: 0
+mrocznaowca	0	0.001742160278745651	0.0	
+Cluster: 1
+adiii86	0	0.001742160278745651	0.0	
+Cluster: 2
+mefiusz	0	0.001742160278745651	0.0	
+Cluster: 3
+MacWildcat	0	0.001742160278745651	0.0	
+Cluster: 4
+cichaczem	0	0.001742160278745651	0.0	
+Cluster: 5
+Klang_Harcun	0	0.001742160278745651	0.0	
+Cluster: 6
+ozm696	1	0.011614401858304334	0.0	
+CrazyaboutX	1	0.011614401858304334	0.0	
+Cluster: 7
+Kiwiora	0	0.001742160278745651	0.0	
+Cluster: 8
+Najsuroviji	0	0.001742160278745651	0.0	
+Cluster: 9
+Kessell	0	0.001742160278745651	0.0	
+Cluster: 10
+bobi-the-mute	0	0.001742160278745651	0.0	
+Cluster: 11
+CzarnySkittels	26	0.013742830506830036	7.806594453242723	
+nataszella	26	0.013835373697664828	10.202581362565882	
+bartekre	19	0.010513873571332363	2.8785832272825815	
+mrSschizo	21	0.011376193976205151	3.6204940340540688	
+Killia	26	0.01371171170176053	6.96673945529949	
+semioni	27	0.014193702802306645	8.242878157274443	
+hiss_	26	0.01369380233003499	6.441078493454318	
+iskierka	20	0.010933206465756464	3.5955653078095535	
+redrim	19	0.010492579114570303	3.264340643017114	
+kotasia	16	0.009085141354542848	1.9195881732646438	
+menicPL	22	0.011921205870905451	5.639975941035976	
+zuza_f	25	0.013252761484377791	6.218642535879041	
+belly_dancer	29	0.015123436447902483	9.633139210515035	
+Saranella	20	0.010894182223636941	2.6181363356285954	
+Scarlet_Fields	23	0.012441170451256684	7.537365642837442	
+byebasil	17	0.009514714712493082	1.1721008637568742	
+fusaccio	20	0.010874728274391138	2.3464011120122303	
+krasiwyj	17	0.009477153939507174	1.279403766168472	
+stefek99	28	0.014657100613187882	8.968409495785323	
+_Owca	22	0.011828301627681628	3.5324838416321116	
+malkavkitty	17	0.009514714712493082	1.1721008637568742	
+CTSprods	17	0.009596652502441147	3.5196917246839847	
+hewek	25	0.013321635038915721	7.4359887302763195	
+azotka_srebra	26	0.0137884967169137	9.332348334724161	
+wiwetu	18	0.010016692376799865	2.776217143709404	
+agamusic	17	0.009580934493477584	2.517619294414623	
+spitfiredhc6666	25	0.013342769423809448	7.664419041794866	
+Alec_Empire	8	0.0054216167595277686	0.13025210084033612	
+MissyxxLouve	18	0.010001237156010522	2.5061635116353114	
+Deprimek	20	0.010874467676537535	2.2231178593172136	
+noisebit	30	0.015604417060250224	10.790678321730617	
+JayRokxx	16	0.009034054382217431	1.0469010206003744	
+Cluster: 12
+kokosowakarcia	0	0.001742160278745651	0.0	
+Cluster: 13
+yapee	0	0.001742160278745651	0.0	
+Cluster: 14
+eyaah	0	0.001742160278745651	0.0	
+Cluster: 15
+tomaszslazok	0	0.001742160278745651	0.0	
+Cluster: 16
+jankaloryfer	0	0.001742160278745651	0.0	
+Cluster: 17
+kubaor	0	0.001742160278745651	0.0	
+Cluster: 18
+kobutz	0	0.001742160278745651	0.0	
+Cluster: 19
+CzestTer	0	0.001742160278745651	0.0	
+Cluster: 20
+vyvern	0	0.001742160278745651	0.0	
+Cluster: 21
+pantofel	0	0.001742160278745651	0.0	
+Cluster: 22
+LordGrey	0	0.001742160278745651	0.0	
+Cluster: 23
+Crystal_Pea	0	0.001742160278745651	0.0	
+Cluster: 24
+MJeremy	0	0.001742160278745651	0.0	
+Cluster: 25
+dream-hunter	0	0.001742160278745651	0.0	
+Cluster: 26
+Komcia	0	0.001742160278745651	0.0	
+Cluster: 27
+-OdyN-	0	0.001742160278745651	0.0	
+Cluster: 28
+brndtta	0	0.001742160278745651	0.0	
+Cluster: 29
+hire-i	0	0.001742160278745651	0.0	
+Cluster: 30
+DiziXagi	0	0.001742160278745651	0.0	
+Cluster: 31
+Derudo	0	0.001742160278745651	0.0	
+Cluster: 32
+kyote_ugly	0	0.001742160278745651	0.0	
+Cluster: 33
+juichan	0	0.001742160278745651	0.0	
+Cluster: 34
+Schulzzz	0	0.001742160278745651	0.0	
+Cluster: 35
+kiwiora	0	0.001742160278745651	0.0	
+Cluster: 36
+malinowcu	0	0.001742160278745651	0.0	
+Cluster: 37
+Okami_Imako	7	0.014436761354704288	1.9999999999999998	
+Goferek23	7	0.014436761354704288	1.9999999999999998	
+freawaru	4	0.008890496762941584	0.0	
+tuathe	4	0.008890496762941584	0.0	
+Dajmosek	5	0.010607979092146209	0.0	
+tommell	5	0.010607979092146209	0.0	
+RestlessSinner	7	0.014436761354704288	1.9999999999999998	
+teela_	5	0.010607979092146209	0.0	
+Cluster: 38
+testarusty	0	0.001742160278745651	0.0	
+Cluster: 39
+Duo139	0	0.001742160278745651	0.0	
+Cluster: 40
+Nachielle	0	0.001742160278745651	0.0	
+Cluster: 41
+matisso	0	0.001742160278745651	0.0	
+Cluster: 42
+intensyfikacja	0	0.001742160278745651	0.0	
+Cluster: 43
+onirisme	0	0.001742160278745651	0.0	
+Cluster: 44
+szyszaq	0	0.001742160278745651	0.0	
+Cluster: 45
+Mezzanine_Fiona	0	0.001742160278745651	0.0	
+Cluster: 46
+cevas	0	0.001742160278745651	0.0	
+Cluster: 47
+Karolas_pl	0	0.001742160278745651	0.0	
+Cluster: 48
+Therushka	0	0.001742160278745651	0.0	
+Cluster: 49
+majinek	0	0.001742160278745651	0.0	
+Cluster: 50
+Agreest	0	0.001742160278745651	0.0	
+Cluster: 51
+RomanGda	0	0.001742160278745651	0.0	
+Cluster: 52
+darmozjad	0	0.001742160278745651	0.0	
+Cluster: 53
+Tahti	0	0.001742160278745651	0.0	
+Cluster: 54
+niumaPL	0	0.001742160278745651	0.0	
+Cluster: 55
+kaajkaaa	0	0.001742160278745651	0.0	
+Cluster: 56
+JENDRAS	0	0.001742160278745651	0.0	
+Cluster: 57
+draq	0	0.001742160278745651	0.0	
+Cluster: 58
+PettyGahanDM	0	0.001742160278745651	0.0	
+Cluster: 59
+Avrora_XxX	0	0.001742160278745651	0.0	
+Cluster: 60
+_Sooltan_	0	0.001742160278745651	0.0	
+Cluster: 61
+anndmka	0	0.001742160278745651	0.0	
+Cluster: 62
+Megsalot	0	0.001742160278745651	0.0	
+Cluster: 63
+klubstodola	0	0.001742160278745651	0.0	
+Cluster: 64
+Joanaarieiro	0	0.001742160278745651	0.0	
+Cluster: 65
+ioionjam	0	0.001742160278745651	0.0	
+Cluster: 66
+vickyta	0	0.001742160278745651	0.0	
+Cluster: 67
+depecherid	0	0.001742160278745651	0.0	
+Cluster: 68
+Izalec	0	0.001742160278745651	0.0	
+Cluster: 69
+phenomenigma	0	0.001742160278745651	0.0	
+Cluster: 70
+dekolt	0	0.001742160278745651	0.0	
+Cluster: 71
+LetoMacchiato	0	0.001742160278745651	0.0	
+Cluster: 72
+pinkfisz	0	0.001742160278745651	0.0	
+Cluster: 73
+AlannahWilder	0	0.001742160278745651	0.0	
+Cluster: 74
+Sayu_x13	0	0.001742160278745651	0.0	
+Cluster: 75
+LovePeaceRingo	0	0.001742160278745651	0.0	
+Cluster: 76
+ohGre	0	0.001742160278745651	0.0	
+Cluster: 77
+AldemarVRotter	0	0.001742160278745651	0.0	
+Cluster: 78
+Fisher_spooner	0	0.001742160278745651	0.0	
+Cluster: 79
+Calliope88	0	0.001742160278745651	0.0	
+Cluster: 80
+koperek	0	0.001742160278745651	0.0	
+Cluster: 81
+System90	0	0.001742160278745651	0.0	
+Cluster: 82
+sybaritisme	0	0.001742160278745651	0.0	
+Cluster: 83
+daria_dm	0	0.001742160278745651	0.0	
+Cluster: 84
+Elair	0	0.001742160278745651	0.0	
+Cluster: 85
+LilithV	0	0.001742160278745651	0.0	
+Cluster: 86
+SynthEtik	0	0.001742160278745651	0.0	
+Cluster: 87
+behindthewheel	0	0.001742160278745651	0.0	
+Cluster: 88
+kriisredhead	0	0.001742160278745651	0.0	
+Cluster: 89
+PresidentX	0	0.001742160278745651	0.0	
+Cluster: 90
+-Plasticine-	0	0.001742160278745651	0.0	
+Cluster: 91
+Frances88	0	0.001742160278745651	0.0	
+Cluster: 92
+mykkma	0	0.001742160278745651	0.0	
+Cluster: 93
+nowa_ja	0	0.001742160278745651	0.0	
+Cluster: 94
+GrieverHellion	0	0.001742160278745651	0.0	
+Cluster: 95
+Kjuroman	0	0.001742160278745651	0.0	
+Cluster: 96
+Murdererrrr	0	0.001742160278745651	0.0	
+Cluster: 97
+tehnub	0	0.001742160278745651	0.0	
+Cluster: 98
+Lord_Krichian	0	0.001742160278745651	0.0	
+Cluster: 99
+Malvir	6	0.01204373651405023	0.5	
+avangardness	7	0.013872088615786442	1.3333333333333333	
+mistrz0	7	0.01387208861578644	1.3333333333333333	
+Marcin09	6	0.01204373651405023	0.5	
+ROKERSBAGERA	4	0.008501759994939255	0.0	
+anankeee	7	0.01387208861578644	1.3333333333333333	
+firanana	4	0.008501759994939255	0.0	
+Farmer666	5	0.010207956001096372	0.0	
+Cluster: 100
+glebcia	0	0.001742160278745651	0.0	
+Cluster: 101
+Dominikaxyz	0	0.001742160278745651	0.0	
+Cluster: 102
+H4C37	0	0.001742160278745651	0.0	
+Cluster: 103
+wandowska	0	0.001742160278745651	0.0	
+Cluster: 104
+Blue_Dragonfly	0	0.001742160278745651	0.0	
+Cluster: 105
+Anticeno	0	0.001742160278745651	0.0	
+Cluster: 106
+magdziabanan	3	0.011614401858304332	0.0	
+TEcHNOpl	3	0.011614401858304332	0.0	
+Voolcanic	3	0.011614401858304332	0.0	
+lucaspl81	3	0.011614401858304332	0.0	
+Cluster: 107
+warkoczyk	0	0.001742160278745651	0.0	
+Cluster: 108
+kr-lik	0	0.001742160278745651	0.0	
+Cluster: 109
+DerSneaker	0	0.001742160278745651	0.0	
+Cluster: 110
+BeautyFromPain_	0	0.001742160278745651	0.0	
+Cluster: 111
+UrJoyIsMyLow	0	0.001742160278745651	0.0	
+Cluster: 112
+Curlyman28	0	0.001742160278745651	0.0	
+Cluster: 113
+szczurolap	0	0.001742160278745651	0.0	
+Cluster: 114
+Irvva	0	0.001742160278745651	0.0	
+Cluster: 115
+dezetkrk	0	0.001742160278745651	0.0	
+Cluster: 116
+fallik	0	0.001742160278745651	0.0	
+Cluster: 117
+aganaui	0	0.001742160278745651	0.0	
+Cluster: 118
+martynkowa	0	0.001742160278745651	0.0	
+Cluster: 119
+Biedrunka	0	0.001742160278745651	0.0	
+Cluster: 120
+horrid69	0	0.001742160278745651	0.0	
+Cluster: 121
+EoK22	0	0.001742160278745651	0.0	
+Cluster: 122
+ogniskowicz	0	0.001742160278745651	0.0	
+Cluster: 123
+ogt_tczew	0	0.001742160278745651	0.0	
+Cluster: 124
+deelce1986	0	0.001742160278745651	0.0	
+Cluster: 125
+ramenn	0	0.001742160278745651	0.0	
+Cluster: 126
+izaak0	0	0.001742160278745651	0.0	
+Cluster: 127
+lostomatos	1	0.011614401858304334	0.0	
+vampiczna	1	0.011614401858304334	0.0	
+Cluster: 128
+marmey	0	0.001742160278745651	0.0	
+Cluster: 129
+Sthilmann	0	0.001742160278745651	0.0	
+Cluster: 130
+znorfska	0	0.001742160278745651	0.0	
+Cluster: 131
+abnegacja	0	0.001742160278745651	0.0	
+Cluster: 132
+love_hysteria6	0	0.001742160278745651	0.0	
+Cluster: 133
+lorgean	0	0.001742160278745651	0.0	
+Cluster: 134
+dorotella	0	0.001742160278745651	0.0	
+Cluster: 135
+jagna_xp	0	0.001742160278745651	0.0	
+Cluster: 136
+Acibuk1990	0	0.001742160278745651	0.0	
+Cluster: 137
+vevzduchuduch	0	0.001742160278745651	0.0	
+Cluster: 138
+dajryjka13	0	0.001742160278745651	0.0	
+Cluster: 139
+s_koktajlowa	0	0.001742160278745651	0.0	
+Cluster: 140
+x_wiThoutU_x	2	0.011614401858304334	0.0	
+DrEldred	2	0.011614401858304334	0.0	
+Pyramidek	2	0.011614401858304334	0.0	
+Cluster: 141
+krolik_ow_ska	6	0.011614401858304327	0.0	
+DR0N3	6	0.011614401858304327	0.0	
+malgorzatasz	6	0.011614401858304327	0.0	
+aryjskamaria	6	0.011614401858304327	0.0	
+AstridMe	6	0.011614401858304327	0.0	
+javicuervo	6	0.011614401858304327	0.0	
+kubakoner	6	0.011614401858304327	0.0	
